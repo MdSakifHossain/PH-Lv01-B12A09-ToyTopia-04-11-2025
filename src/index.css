@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --breakpoint-xs: 20rem;
+  --font-inter: "Inter", sans-serif;
+
+  /* this color is used for hero sections buttons border color */
+  --color-border-color: #d2d2d2;
+
+  /* this color is usef for overall websites bg colr */
+  --color-bg: #f5f5f5;
+
+  --color-heading-color: #001931;
+  --color-subheading-color: #627382;
+
+  --color-dark-purple: #632ee3;
+  --color-light-purple: #9f62f2;
+
+  --color-my-accent: #00d390;
+  --color-my-accent-bg: #f1f5e8;
+
+  --color-my-accent2: #ff8811;
+  --color-my-accent-bg2: #fff0e1;
+
+  --color-footer-bg: #001931;
+}
+
+ul li a.active {
+  @apply text-transparent bg-gradient-to-br from-dark-purple to-light-purple bg-clip-text border-b-2 border-light-purple rounded-b-none;
+}
+
+.word-spacing {
+  word-spacing: 0.6rem;
+}
+
+/* custom animation */
+@keyframes spinny {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spinny {
+  animation: spinny 0.6s linear infinite;
+}
+
+/* Custom CSS for global scrollbar hiding */
+/* For Firefox */
+/* html,
+body {
+  scrollbar-width: none;
+} */
+
+/* For Chrome, Safari, Edge */
+/* html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+} */
