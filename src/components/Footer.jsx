@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="font-outfit text-sm lg:text-base font-semibold lg:font-normal text-gray-400 py-8 flex flex-col items-center justify-center gap-10">
+    <footer className="font-outfit text-sm lg:text-base font-semibold lg:font-normal text-gray-400 pb-8 flex flex-col items-center justify-center gap-10">
       <span className="w-6/12 max-w-4/12 h-2 rounded-full bg-linear-to-l from-gray-400 to-gray-600"></span>
       <div className="flex flex-col gap-2.5">
         <p>
@@ -42,7 +42,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className="flex justify-center gap-3">
+        <div className="flex justify-center gap-3 *:transition-all *:duration-200 *:hover:text-white">
           <a to="#top">Terms and Conditions</a>
           <a to="#top">privacy policy</a>
         </div>
