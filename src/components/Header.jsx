@@ -11,7 +11,7 @@ const Header = () => {
   ));
 
   return (
-    <header className="bg-base-100 font-outfit">
+    <header className="font-outfit">
       <div className="container mx-auto navbar my-2">
         <div className="navbar-start">
           <div className="dropdown">

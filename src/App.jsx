@@ -5,10 +5,10 @@ import { Outlet } from "react-router";
 
 const App = () => {
   return (
-    <div className="font-display-mono min-h-svh flex flex-col gap-12">
+    <div className="font-display-mono min-h-svh body text-gray-100 flex flex-col gap-12">
       <Header />
 
-      <main className="border container mx-auto flex-1">
+      <main className="container mx-auto flex-1">
         <Outlet />
       </main>
 
