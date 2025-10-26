@@ -1,11 +1,12 @@
 import React from "react";
 import { FaGithub, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Divider from "./Divider";
 
 const Footer = () => {
   return (
     <footer className="font-outfit text-sm lg:text-base font-semibold lg:font-normal text-gray-400 pb-8 flex flex-col items-center justify-center gap-10">
-      <span className="w-6/12 max-w-4/12 h-2 rounded-full bg-linear-to-l from-gray-400 to-gray-600"></span>
+      <Divider className="bg-linear-to-l from-gray-400 to-gray-600" />
       <div className="flex flex-col gap-2.5">
         <p>
           Find an issue with this page?{" "}
