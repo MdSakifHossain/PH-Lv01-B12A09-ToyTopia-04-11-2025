@@ -1,63 +1,68 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-@import "tailwindcss";
-@plugin "daisyui";
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
-@theme {
-  --breakpoint-xs: 20rem;
-  --font-inter: "Inter", sans-serif;
-
-  /* this color is used for hero sections buttons border color */
-  --color-border-color: #d2d2d2;
-
-  /* this color is usef for overall websites bg colr */
-  --color-bg: #f5f5f5;
-
-  --color-heading-color: #001931;
-  --color-subheading-color: #627382;
-
-  --color-dark-purple: #632ee3;
-  --color-light-purple: #9f62f2;
-
-  --color-my-accent: #00d390;
-  --color-my-accent-bg: #f1f5e8;
-
-  --color-my-accent2: #ff8811;
-  --color-my-accent-bg2: #fff0e1;
-
-  --color-footer-bg: #001931;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-ul li a.active {
-  @apply text-transparent bg-gradient-to-br from-dark-purple to-light-purple bg-clip-text border-b-2 border-light-purple rounded-b-none;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
-.word-spacing {
-  word-spacing: 0.6rem;
-}
-
-/* custom animation */
-@keyframes spinny {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.animate-spinny {
-  animation: spinny 0.6s linear infinite;
-}
-
-/* Custom CSS for global scrollbar hiding */
-/* For Firefox */
-/* html,
 body {
-  scrollbar-width: none;
-} */
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
 
-/* For Chrome, Safari, Edge */
-/* html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-} */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
