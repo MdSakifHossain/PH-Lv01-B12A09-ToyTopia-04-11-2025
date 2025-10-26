@@ -1,15 +1,23 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const PageNotFound = () => {
+  const location = useLocation();
+
   return (
     <div className="flex-1 flex items-center justify-center flex-col gap-4">
       <h3 className="text-3xl lg:text-5xl text-center font-bold">
         Page Not fOund
       </h3>
+      <p className="font-outfit lg:text-lg">
+        <span className="font-semibold text-violet-400">
+          {location.pathname}
+        </span>{" "}
+        Is not a valid Link..!
+      </p>
       <Link
         to={`/`}
-        className="underline underline-offset-8 font-semibold font-outfit lg:text-2xl transition-all duration-150 ease-out hover:decoration-violet-500"
+        className="underline underline-offset-8 font-medium font-outfit text-lg lg:text-xl transition-all duration-150 ease-out hover:decoration-violet-500"
       >
         Go to Home Page
       </Link>
