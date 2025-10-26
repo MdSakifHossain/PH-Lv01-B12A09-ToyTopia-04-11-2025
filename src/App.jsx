@@ -8,7 +8,7 @@ const App = () => {
     <div className="font-display-mono min-h-svh body text-gray-100 flex flex-col gap-12">
       <Header />
 
-      <main className="container mx-auto flex-1">
+      <main className="border container mx-auto flex-1">
         <Outlet />
       </main>
 
