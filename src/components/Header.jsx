@@ -33,7 +33,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-md dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-violet-500 font-semibold"
+              className="menu menu-md dropdown-content rounded-box z-10 mt-3 w-52 p-2 shadow bg-violet-500 font-semibold"
             >
               {NavLinks}
             </ul>
