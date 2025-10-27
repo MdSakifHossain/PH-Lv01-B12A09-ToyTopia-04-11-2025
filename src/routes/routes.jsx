@@ -23,7 +23,6 @@ export const router = createBrowserRouter([
         index: true,
         loader: async () => {
           const { data } = await axios.request(api_options);
-          console.log(data);
           return data;
         },
         Component: HomePage,

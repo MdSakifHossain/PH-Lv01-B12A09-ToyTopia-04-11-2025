@@ -24,3 +24,7 @@ li a.active {
     rgb(32, 39, 55) 100%
   );
 }
+
+.retro-shadow {
+  box-shadow: 4px 3px 0 rgb(133, 200, 62);
+}
