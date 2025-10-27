@@ -9,7 +9,7 @@ const api_options = {
   method: "GET",
   url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
   headers: {
-    "x-rapidapi-key": "faba57035dmsh8deacfd3c56beddp14cafbjsn7fcea87942d9",
+    "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
     "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
   },
 };
