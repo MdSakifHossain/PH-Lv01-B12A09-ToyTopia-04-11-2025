@@ -28,3 +28,16 @@ li a.active {
 .retro-shadow {
   box-shadow: 4px 3px 0 rgb(133, 200, 62);
 }
+
+/* Custom CSS for global scrollbar hiding */
+/* For Firefox */
+html,
+body {
+  scrollbar-width: none;
+}
+
+/* For Chrome, Safari, Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}

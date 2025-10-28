@@ -4,6 +4,7 @@ import axios from "axios";
 import App from "../App";
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
+import AllGames from "../pages/AllGames";
 
 const api_options1 = {
   method: "GET",
@@ -35,6 +36,14 @@ export const router = createBrowserRouter([
           return { allGames, popularGames };
         },
         Component: HomePage,
+      },
+      {
+        path: "all-games",
+        loader: async () => {
+          const { data: popularGames } = await axios.request(api_options2);
+          return { popularGames };
+        },
+        Component: AllGames,
       },
       {
         path: "*",

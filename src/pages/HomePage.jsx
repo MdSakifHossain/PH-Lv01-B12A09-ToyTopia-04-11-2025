@@ -61,9 +61,9 @@ const HomePage = () => {
       {/* Newsletter Section */}
       <section className="w-11/12 sm:w-full mx-auto flex flex-col gap-6">
         <div className="relative w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
-          <span className="size-7 absolute -top-3 -right-3 translate-[-50%,-50%] bg-lime-600 animate-ping rounded-full"></span>
+          <span className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%] bg-lime-600 animate-ping rounded-full"></span>
           <img
-            className="size-7 absolute -top-3 -right-3 translate-[-50%,-50%]"
+            className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%]"
             src="/vite.svg"
             alt="logo"
           />
