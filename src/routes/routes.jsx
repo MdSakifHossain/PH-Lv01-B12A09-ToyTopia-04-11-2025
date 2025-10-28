@@ -5,6 +5,7 @@ import App from "../App";
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
 import AllGames from "../pages/AllGames";
+import AllCategories from "../pages/AllCategories";
 
 const api_options1 = {
   method: "GET",
@@ -46,9 +47,13 @@ export const router = createBrowserRouter([
         Component: AllGames,
       },
       {
-        path: "*",
-        Component: PageNotFound,
+        path: "categories",
+        Component: AllCategories,
       },
     ],
+  },
+  {
+    path: "*",
+    Component: PageNotFound,
   },
 ]);
