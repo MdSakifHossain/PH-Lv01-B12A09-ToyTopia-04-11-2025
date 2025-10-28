@@ -7,7 +7,6 @@ import GameCard from "../components/GameCard";
 
 const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
-  console.log(popularGames);
 
   return (
     <div className="flex-1 font-outfit pt-4 pb-16 flex flex-col items-start justify-start gap-16">
