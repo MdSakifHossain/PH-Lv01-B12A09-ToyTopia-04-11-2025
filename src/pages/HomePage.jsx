@@ -9,7 +9,7 @@ const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
 
   return (
-    <div className="flex-1 font-outfit pt-4 pb-16 flex flex-col items-start justify-start gap-16">
+    <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-16">
       <Slider data={allGames} />
 
       {/* Categories Section */}
@@ -56,6 +56,32 @@ const HomePage = () => {
             Explore More
           </Link>
         </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
+        <div className="flex flex-col gap-2 items-center">
+          <h2 className="text-2xl lg:text-4xl font-medium text-gray-100">
+            Join the Battle for Daily Gaming Updates
+          </h2>
+          <p className="font-normal text-xs lg:text-lg">
+            Get the latest news, tournaments & exclusive drops straight to your
+            inbox.
+          </p>
+        </div>
+        <form className="w-full lg:w-11/12 mx-auto border-2 border-violet-500 rounded-lg flex items-start justify-start lg:*:text-lg">
+          <input
+            className="flex-1 ps-4 py-2 lg:py-3 focus-visible:outline-0"
+            placeholder="Your Email"
+            type="email"
+            name="email"
+          />
+          <input
+            type="submit"
+            value="Join"
+            className="text-white font-medium bg-violet-500 border border-violet-500 px-8 lg:px-12 py-2 lg:py-3 rounded-e-sm"
+          />
+        </form>
       </section>
     </div>
   );
