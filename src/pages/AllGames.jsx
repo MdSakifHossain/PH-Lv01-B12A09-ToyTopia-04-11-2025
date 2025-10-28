@@ -28,13 +28,13 @@ const AllGames = () => {
           <p>Note: All Games are Sorted in Most Popular to Least Popular.</p>
         </div>
         <form
-          className="col-start-3 retro-shadow border-3 border-gray-500 px-6 py-3.5 md:py-5 w-full flex items-center gap-[1.1rem] flex-col md:flex-row caret-lime-400"
+          className="col-start-3 retro-shadow border-3 border-gray-500 ps-6 w-full flex items-center gap-[1.1rem] flex-col md:flex-row caret-lime-400"
           onSubmit={(e) => e.preventDefault()}
         >
           <TbSearch className="text-3xl text-gray-300" />
           <input
             className="
-              w-full text-lg sm:text-xl
+              w-full text-lg sm:text-xl py-3.5 md:py-5
               focus-visible:outline-0"
             placeholder="Search Here"
             type="text"
@@ -44,12 +44,25 @@ const AllGames = () => {
         </form>
       </section>
 
-      <section className="w-full flex flex-col gap-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filteredArr.map((game) => (
-            <GameCard key={game.id} game={game} />
-          ))}
-        </div>
+      <section className="w-full flex-1 flex flex-col gap-8">
+        {filteredArr.length !== 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {filteredArr.map((game) => (
+              <GameCard key={game.id} game={game} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex-1 flex flex-col items-center justify-center gap-8">
+            <h1 className="text-7xl">(⌣_⌣”)</h1>
+            <h2 className="font-display-mono text-5xl">nO gAme fOuNd</h2>
+            <p className="text-2xl font-light text-gray-400">
+              Are you searching for{" "}
+              <span className="text-gray-200 text-4xl font-semibold underline underline-offset-8 decoration-2 decoration-violet-500">
+                {searchQuery}
+              </span>
+            </p>
+          </div>
+        )}
       </section>
     </div>
   );

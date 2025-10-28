@@ -31,13 +31,13 @@ li a.active {
 
 /* Custom CSS for global scrollbar hiding */
 /* For Firefox */
-html,
+/* html,
 body {
   scrollbar-width: none;
-}
+} */
 
 /* For Chrome, Safari, Edge */
-html::-webkit-scrollbar,
+/* html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
-}
+} */
