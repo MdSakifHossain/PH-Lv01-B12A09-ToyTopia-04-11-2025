@@ -19,8 +19,8 @@ const AllGames = () => {
 
   return (
     <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-16">
-      <section className="w-full grid grid-cols-3 gap-8">
-        <div className="flex flex-col gap-4">
+      <section className="w-full grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="order-2 xl:order-1 flex flex-col gap-4">
           <h2 className="text-3xl lg:text-4xl font-semibold">
             <span className="text-lime-400">All</span> Games:{" "}
             <span className="text-lime-400">({filteredArr.length})</span>
@@ -28,7 +28,7 @@ const AllGames = () => {
           <p>Note: All Games are Sorted in Most Popular to Least Popular.</p>
         </div>
         <form
-          className="col-start-3 retro-shadow border-3 border-gray-500 ps-6 w-full flex items-center gap-[1.1rem] flex-col md:flex-row caret-lime-400"
+          className="xl:col-start-3 order-1 xl:order-2 retro-shadow border-3 border-gray-500 ps-6 w-full flex items-center gap-[1.1rem] flex-row caret-lime-400"
           onSubmit={(e) => e.preventDefault()}
         >
           <TbSearch className="text-3xl text-gray-300" />
