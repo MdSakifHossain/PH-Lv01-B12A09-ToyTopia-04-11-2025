@@ -59,27 +59,33 @@ const HomePage = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
-        <div className="flex flex-col gap-2 items-center">
-          <h2 className="text-2xl lg:text-4xl font-medium text-gray-100">
-            Join the Battle for Daily Gaming Updates
-          </h2>
-          <p className="font-normal text-xs lg:text-lg">
-            Get the latest news, tournaments & exclusive drops straight to your
-            inbox.
-          </p>
+      <section className="w-full flex flex-col gap-6">
+        <div className="w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
+          <div className="flex flex-col gap-2 items-center">
+            <h2 className="text-2xl lg:text-4xl font-medium text-gray-100">
+              Join the Battle for Daily Gaming Updates
+            </h2>
+            <p className="font-normal text-sm lg:text-lg">
+              Get the latest news, tournaments & exclusive drops straight to
+              your inbox.
+            </p>
+          </div>
         </div>
-        <form className="w-full lg:w-11/12 mx-auto border-2 border-violet-500 rounded-lg flex items-start justify-start lg:*:text-lg">
+
+        <form className="w-full sm:w-10/12 mx-auto flex items-center gap-[1.1rem] flex-col md:flex-row *:py-3.5 md:*:py-5 text-lg sm:*:text-xl caret-lime-400">
           <input
-            className="flex-1 ps-4 py-2 lg:py-3 focus-visible:outline-0"
+            className="
+          retro-shadow px-6 w-full border-3 border-gray-500 transition-all duration-200
+          active:scale-95 
+          focus-visible:outline-0"
             placeholder="Your Email"
             type="email"
             name="email"
           />
           <input
+            className="px-12 border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium transition-all duration-150 ease-out hover:scale-103"
             type="submit"
-            value="Join"
-            className="text-white font-medium bg-violet-500 border border-violet-500 px-8 lg:px-12 py-2 lg:py-3 rounded-e-sm"
+            value="Subscribe *"
           />
         </form>
       </section>
