@@ -5,9 +5,17 @@ import App from "../App";
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
 
-const api_options = {
+const api_options1 = {
   method: "GET",
   url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+  headers: {
+    "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
+    "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+  },
+};
+const api_options2 = {
+  method: "GET",
+  url: "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity",
   headers: {
     "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
     "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
@@ -22,8 +30,9 @@ export const router = createBrowserRouter([
       {
         index: true,
         loader: async () => {
-          const { data } = await axios.request(api_options);
-          return data;
+          const { data: allGames } = await axios.request(api_options1);
+          const { data: popularGames } = await axios.request(api_options2);
+          return { allGames, popularGames };
         },
         Component: HomePage,
       },
