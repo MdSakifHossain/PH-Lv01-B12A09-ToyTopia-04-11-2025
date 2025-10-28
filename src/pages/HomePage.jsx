@@ -17,7 +17,7 @@ const HomePage = () => {
         <h2 className="text-3xl lg:text-4xl font-semibold">
           <span className="text-lime-400">Categories: </span>
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {Utils.ALL_CATEGORIES.slice(0, 18).map((cat) => (
             <span
               // className="bg-zinc-700 px-6 py-6 text-base lg:text-xl font-medium rounded-md select-none transition-all duration-200 ease-out hover:scale-110 hover:-translate-y-0.5 hover:shadow-2xl hover:rounded-lg hover:retro-shadow"
