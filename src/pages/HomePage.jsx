@@ -43,7 +43,7 @@ const HomePage = () => {
         <h2 className="text-3xl lg:text-4xl font-semibold">
           <span className="text-lime-400">Popular</span> Games:{" "}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {popularGames.slice(0, 19).map((game) => (
             <GameCard key={game.id} game={game} />
           ))}
@@ -75,9 +75,9 @@ const HomePage = () => {
         <form className="w-full sm:w-10/12 mx-auto flex items-center gap-[1.1rem] flex-col md:flex-row *:py-3.5 md:*:py-5 text-lg sm:*:text-xl caret-lime-400">
           <input
             className="
-          retro-shadow px-6 w-full border-3 border-gray-500 transition-all duration-200
-          active:scale-95 
-          focus-visible:outline-0"
+              retro-shadow px-6 w-full border-3 border-gray-500 transition-all duration-200
+              active:scale-95 
+              focus-visible:outline-0"
             placeholder="Your Email"
             type="email"
             name="email"
