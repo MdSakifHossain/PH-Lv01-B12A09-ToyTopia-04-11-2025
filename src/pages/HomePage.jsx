@@ -59,8 +59,14 @@ const HomePage = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full flex flex-col gap-6">
-        <div className="w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
+      <section className="w-11/12 sm:w-full mx-auto flex flex-col gap-6">
+        <div className="relative w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
+          <span className="size-7 absolute -top-3 -right-3 translate-[-50%,-50%] bg-lime-600 animate-ping rounded-full"></span>
+          <img
+            className="size-7 absolute -top-3 -right-3 translate-[-50%,-50%]"
+            src="/vite.svg"
+            alt="logo"
+          />
           <div className="flex flex-col gap-2 items-center">
             <h2 className="text-2xl lg:text-4xl font-medium text-gray-100">
               Join the Battle for Daily Gaming Updates
