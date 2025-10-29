@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
         Component: HomePage,
       },
       {
-        path: "all-games",
+        path: "games",
         loader: async () => {
           const { data: popularGames } = await axios.request(api_options2);
           return { popularGames };
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
 
           const api_options3 = {
             method: "GET",
-            url: `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`,
+            url: `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}&sort-by=popularity`,
             headers: {
               "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
               "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
