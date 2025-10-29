@@ -10,6 +10,7 @@ import GameCard from "../components/GameCard";
 const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
   const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const HomePage = () => {
     ));
 
     setEmail("");
+    setIsSubmitted(true);
   };
 
   return (
@@ -82,45 +84,67 @@ const HomePage = () => {
 
       {/* Newsletter Section */}
       <section className="w-11/12 sm:w-full mx-auto flex flex-col gap-6">
-        <div className="relative w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
-          <span className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%] bg-lime-600 animate-ping rounded-full"></span>
-          <img
-            className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%]"
-            src="/vite.svg"
-            alt="logo"
-          />
-          <div className="flex flex-col gap-2 items-center">
-            <h2 className="text-2xl lg:text-4xl font-medium text-gray-100">
-              Join the Battle for Daily Gaming Updates
-            </h2>
-            <p className="font-normal text-sm lg:text-lg">
-              Get the latest news, tournaments & exclusive drops straight to
-              your inbox.
-            </p>
+        {isSubmitted ? (
+          <div className="relative w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
+            <span className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%] bg-lime-600 animate-ping rounded-full"></span>
+            <img
+              className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%]"
+              src="/vite.svg"
+              alt="logo"
+            />
+            <div className="flex flex-col gap-2 items-center">
+              <h2 className="text-[1.35rem] lg:text-3xl font-medium text-gray-100 flex items-center gap-4">
+                Subscribed Successfully!
+              </h2>
+              <p className="text-center text-sm lg:text-lg text-gray-400 font-normal">
+                Now, We will bloat your Inbox for no reason and will do it for
+                eternity!
+              </p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            <div className="relative w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
+              <span className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%] bg-lime-600 animate-ping rounded-full"></span>
+              <img
+                className="size-7 md:size-10 absolute -top-3.5 -right-3.5 translate-[-50%,-50%]"
+                src="/vite.svg"
+                alt="logo"
+              />
+              <div className="flex flex-col gap-2 items-center">
+                <h2 className="text-2xl lg:text-4xl font-medium text-gray-100">
+                  Join the Battle for Daily Gaming Updates
+                </h2>
+                <p className="font-normal text-sm lg:text-lg">
+                  Get the latest news, tournaments & exclusive drops straight to
+                  your inbox.
+                </p>
+              </div>
+            </div>
 
-        <form
-          onSubmit={(e) => handleFormSubmit(e)}
-          className="w-full sm:w-10/12 mx-auto flex items-center gap-[1.1rem] flex-col md:flex-row *:py-3.5 md:*:py-5 text-lg sm:*:text-xl caret-lime-400"
-        >
-          <input
-            className="
+            <form
+              onSubmit={(e) => handleFormSubmit(e)}
+              className="w-full sm:w-10/12 mx-auto flex items-center gap-[1.1rem] flex-col md:flex-row *:py-3.5 md:*:py-5 text-lg sm:*:text-xl caret-lime-400"
+            >
+              <input
+                className="
               retro-shadow px-6 w-full border-3 border-gray-500 transition-all duration-200
               active:scale-95 
               focus-visible:outline-0"
-            placeholder="Your Email"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="px-12 border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
-            type="submit"
-            value="Subscribe *"
-          />
-        </form>
+                placeholder="Your Email"
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                className="px-12 border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
+                type="submit"
+                value="Subscribe *"
+              />
+            </form>
+          </>
+        )}
       </section>
     </div>
   );
