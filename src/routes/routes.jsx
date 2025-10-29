@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
 import AllGames from "../pages/AllGames";
 import AllCategories from "../pages/AllCategories";
+import SingleCategory from "../pages/SingleCategory";
 
 const api_options1 = {
   method: "GET",
@@ -49,6 +50,24 @@ export const router = createBrowserRouter([
       {
         path: "categories",
         Component: AllCategories,
+      },
+      {
+        path: "categories/:category",
+        loader: async ({ params }) => {
+          const { category } = params;
+
+          const api_options3 = {
+            method: "GET",
+            url: `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`,
+            headers: {
+              "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
+              "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+            },
+          };
+          const { data: games } = await axios.request(api_options3);
+          return { games, category };
+        },
+        Component: SingleCategory,
       },
     ],
   },
