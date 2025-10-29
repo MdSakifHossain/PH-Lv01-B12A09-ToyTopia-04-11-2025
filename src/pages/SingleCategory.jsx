@@ -17,7 +17,7 @@ const SingleCategory = () => {
   }, [searchQuery, games]);
 
   return (
-    <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-6">
+    <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-8">
       <Link
         className="text-lg font-medium border border-violet-600 bg-violet-600 rounded-full px-4 py-1 flex items-center justify-center gap-2 transition-all duration-150 hover:scale-105"
         to={`/categories`}
@@ -29,7 +29,7 @@ const SingleCategory = () => {
         <section className="w-full grid grid-cols-1 xl:grid-cols-3 gap-8">
           <div className="order-2 xl:order-1 flex flex-col items-start gap-4">
             <h2 className="text-3xl lg:text-4xl font-semibold">
-              <span className="capitalize">{category}</span>:{" "}
+              <span className="uppercase">{category}</span>:{" "}
               <span className="text-lime-400">({filteredArr.length})</span>
             </h2>
           </div>
