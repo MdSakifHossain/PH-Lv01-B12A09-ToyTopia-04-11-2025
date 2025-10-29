@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
+import { toast } from "sonner";
+import { FaCircleCheck } from "react-icons/fa6";
 
 import Slider from "../components/Slider";
 import { Utils } from "../utils/utils";
@@ -7,6 +9,24 @@ import GameCard from "../components/GameCard";
 
 const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
+  const [email, setEmail] = useState("");
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailPattern.test(email)) return;
+
+    toast.custom(() => (
+      <div className="bg-[rgb(32,39,55)] text-gray-100 retro-shadow border-4 border-zinc-600 px-8 py-6 font-outfit rounded-2xl flex items-center justify-between gap-4 select-none">
+        <FaCircleCheck className="text-2xl text-gray-300" />
+        <p className="text-xl">Thank You for Subscribing.</p>
+      </div>
+    ));
+
+    setEmail("");
+  };
 
   return (
     <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-16">
@@ -78,7 +98,10 @@ const HomePage = () => {
           </div>
         </div>
 
-        <form className="w-full sm:w-10/12 mx-auto flex items-center gap-[1.1rem] flex-col md:flex-row *:py-3.5 md:*:py-5 text-lg sm:*:text-xl caret-lime-400">
+        <form
+          onSubmit={(e) => handleFormSubmit(e)}
+          className="w-full sm:w-10/12 mx-auto flex items-center gap-[1.1rem] flex-col md:flex-row *:py-3.5 md:*:py-5 text-lg sm:*:text-xl caret-lime-400"
+        >
           <input
             className="
               retro-shadow px-6 w-full border-3 border-gray-500 transition-all duration-200
@@ -87,9 +110,11 @@ const HomePage = () => {
             placeholder="Your Email"
             type="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="px-12 border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium transition-all duration-150 ease-out hover:scale-103"
+            className="px-12 border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
             type="submit"
             value="Subscribe *"
           />
