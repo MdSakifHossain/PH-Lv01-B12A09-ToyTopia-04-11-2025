@@ -25,7 +25,7 @@ const AllGames = () => {
             <span className="text-lime-400">All</span> Games:{" "}
             <span className="text-lime-400">({filteredArr.length})</span>
           </h2>
-          <p>Note: All Games are Sorted in Most Popular to Least Popular.</p>
+          <p>Note: All Games are Sorted From Most Popular to Least Popular.</p>
         </div>
         <form
           className="xl:col-start-3 order-1 xl:order-2 retro-shadow border-3 border-gray-500 ps-6 w-full flex items-center gap-[1.1rem] flex-row caret-lime-400"
