@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { HiOutlineCpuChip } from "react-icons/hi2";
-import { TbCalendar, TbCode } from "react-icons/tb";
+import { TbCalendar, TbCode, TbTriangleFilled } from "react-icons/tb";
+import { IoMdInformationCircle } from "react-icons/io";
 
 const GameDetails = () => {
   const { gameData } = useLoaderData();
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
   const {
     thumbnail,
     title,
@@ -16,7 +19,10 @@ const GameDetails = () => {
     release_date,
     freetogame_profile_url,
     description,
+    minimum_system_requirements,
   } = gameData;
+  const { os, processor, memory, graphics, storage } =
+    minimum_system_requirements;
 
   const prettyDate = (raw_format) => {
     const [y, m, d] = raw_format.split("-");
@@ -44,18 +50,33 @@ const GameDetails = () => {
           </div>
 
           <div className="w-full pe-12 flex items-center justify-between gap-8">
-            <div>
+            <div className="text-lg">
               <div className="flex items-center justify-start gap-3.5">
-                <HiOutlineCpuChip className="text-xl" />
+                <div className="tooltip tooltip-left">
+                  <div className="tooltip-content text-xl font-medium px-8 py-1.5 bg-[rgb(32,39,55)] border-2 border-gray-500 rounded-none retro-shadow ">
+                    Platform / OS
+                  </div>
+                  <HiOutlineCpuChip className="text-2xl" />
+                </div>
                 <span>{platform}</span>
               </div>
 
               <div className="flex items-center justify-start gap-3.5">
-                <TbCode className="text-xl" />
+                <div className="tooltip tooltip-left">
+                  <div className="tooltip-content text-xl font-medium px-8 py-1.5 bg-[rgb(32,39,55)] border-2 border-gray-500 rounded-none retro-shadow ">
+                    Developer
+                  </div>
+                  <TbCode className="text-2xl" />
+                </div>
                 <span>{developer}</span>
               </div>
               <div className="flex items-center justify-start gap-3.5">
-                <TbCalendar className="text-xl" />
+                <div className="tooltip tooltip-left">
+                  <div className="tooltip-content text-xl font-medium px-8 py-1.5 bg-[rgb(32,39,55)] border-2 border-gray-500 rounded-none retro-shadow ">
+                    Release Date
+                  </div>
+                  <TbCalendar className="text-2xl" />
+                </div>
                 <span>{prettyDate(release_date)}</span>
               </div>
             </div>
@@ -83,6 +104,63 @@ const GameDetails = () => {
             />
           ))}
         </div>
+      </section>
+
+      <section className="flex-1 flex flex-col items-center gap-4">
+        <details className="dropdown dropdown-start select-none w-full">
+          {/* the trigger */}
+          <summary
+            onClick={() => setIsDetailsOpen((prev) => !prev)}
+            className="text-lg px-8 py-3 lg:py-4 border-3 border-gray-500 retro-shadow font-medium flex items-center gap-4 transition-all duration-150 ease-out focus-visible:outline-0 focus-visible:scale-103"
+          >
+            {isDetailsOpen ? (
+              <TbTriangleFilled className="text-xl transition-all duration-150 rotate-180" />
+            ) : (
+              <TbTriangleFilled className="text-xl transition-all duration-150 rotate-90" />
+            )}
+            <span className="flex items-center gap-2">
+              Minimum Requirements <IoMdInformationCircle className="text-lg" />
+            </span>
+          </summary>
+          {/* the details container */}
+          <div className="flex-1 flex flex-col items-start gap-8 retro-shadow border-4 border-gray-500 px-8 py-8 pb-12">
+            <h3 className="text-4xl">Minimum Requirements: </h3>
+            <div
+              className="text-xl text-gray-300 font-medium w-full grid grid-cols-2 gap-2 
+            *:border-2 *:border-gray-500 *:px-4 *:py-6 *:rounded-lg
+            *:transition-all *:duration-300
+            *:hover:bg-violet-700 *:hover:border-violet-700"
+            >
+              <p>
+                <span className="">OS: </span>
+                <span className="font-medium text-gray-100">{os}</span>
+              </p>
+              <p>
+                <span className="">Processor: </span>
+                <span className="font-medium text-gray-100">{processor}</span>
+              </p>
+              <p>
+                <span className="">Memory: </span>
+                <span className="font-medium text-gray-100">{memory}</span>
+              </p>
+              <p>
+                <span className="">Graphics: </span>
+                <span className="font-medium text-gray-100">{graphics}</span>
+              </p>
+              <p>
+                <span className="">Storage: </span>
+                <span className="font-medium text-gray-100">{storage}</span>
+              </p>
+            </div>
+            <a
+              target="_blank"
+              href={freetogame_profile_url}
+              className="ms-auto text-sm px-8 py-2 lg:py-3 border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
+            >
+              Read More
+            </a>
+          </div>
+        </details>
       </section>
 
       <section className="flex-1 flex flex-col items-start gap-4">
