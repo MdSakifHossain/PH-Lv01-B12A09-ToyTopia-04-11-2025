@@ -1,9 +1,14 @@
 import React from "react";
 
-const Divider = ({ className }) => {
+const Divider = ({ className, w, h }) => {
   return (
     <span
-      className={`w-full max-w-4/12 lg:max-w-1/12 h-2 rounded-full ${className}`}
+      className={`
+        ${w ? w : "w-full max-w-4/12 lg:max-w-1/12"} 
+        ${h ? h : "h-2"}
+        ${className}
+        rounded-full
+        `}
     ></span>
   );
 };

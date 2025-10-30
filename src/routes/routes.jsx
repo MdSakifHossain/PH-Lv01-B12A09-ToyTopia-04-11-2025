@@ -8,6 +8,7 @@ import AllGames from "../pages/AllGames";
 import AllCategories from "../pages/AllCategories";
 import SingleCategory from "../pages/SingleCategory";
 import GameDetails from "../pages/GameDetails";
+import LoginPage from "../pages/LoginPage";
 
 const api_options1 = {
   method: "GET",
@@ -87,6 +88,10 @@ export const router = createBrowserRouter([
           return { games, category };
         },
         Component: SingleCategory,
+      },
+      {
+        path: "login",
+        Component: LoginPage,
       },
     ],
   },
