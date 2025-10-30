@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router";
 
 const GameCard = ({ game }) => {
   return (
-    <div className="group relative transition-transform duration-150 hover:-translate-y-3">
+    <Link
+      to={`/games/${game.id}`}
+      className="group relative transition-transform duration-150 hover:-translate-y-3"
+    >
       {/* overlay */}
       <div className="absolute inset-0 rounded bg-black/60 opacity-0 transition-opacity duration-200 group-hover:opacity-100"></div>
       {/* image */}
@@ -12,7 +16,7 @@ const GameCard = ({ game }) => {
         <h3 className="text-2xl font-medium">{game.title}</h3>
         <p className=" text-sm">{game.short_description}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
