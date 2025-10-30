@@ -19,11 +19,11 @@ const SingleCategory = () => {
   return (
     <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-8">
       <Link
-        className="text-lg font-medium border border-violet-600 bg-violet-600 rounded-full px-4 py-1 flex items-center justify-center gap-2 transition-all duration-150 hover:scale-105"
+        className="text-lg font-medium border border-violet-600 bg-violet-600 rounded-full px-4 py-1 flex items-center justify-center gap-2 transition-all duration-150 hover:scale-110 active:scale-98"
         to={`/categories`}
       >
         <FaArrowLeft />
-        Go Back
+        Categories
       </Link>
       <div className="flex flex-col items-start justify-start gap-16">
         <section className="w-full grid grid-cols-1 xl:grid-cols-3 gap-8">
