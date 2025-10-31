@@ -9,6 +9,7 @@ import AllCategories from "../pages/AllCategories";
 import SingleCategory from "../pages/SingleCategory";
 import GameDetails from "../pages/GameDetails";
 import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 
 const api_options1 = {
   method: "GET",
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         Component: LoginPage,
+      },
+      {
+        path: "register",
+        Component: RegisterPage,
       },
     ],
   },
