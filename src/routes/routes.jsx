@@ -103,10 +103,6 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "loading",
-    Component: LoadingSpinner,
-  },
-  {
     path: "*",
     Component: PageNotFound,
   },
