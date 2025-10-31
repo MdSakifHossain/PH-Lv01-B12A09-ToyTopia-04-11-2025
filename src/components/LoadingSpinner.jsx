@@ -6,7 +6,7 @@ const LoadingSpinner = () => {
     <div className="body text-gray-300 font-outfit min-h-svh flex flex-col items-center justify-center gap-4">
       <div className="flex flex-col gap-4 items-center justify-center">
         <LuLoaderCircle className="text-5xl lg:text-8xl animate-spin" />
-        <h3 className="text-4xl lg:text-8xl">Loading... </h3>
+        <h3 className="text-4xl lg:text-6xl">Loading... </h3>
       </div>
     </div>
   );
