@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const GhostCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 9999, y: 9999 });
 
   /**
    *
