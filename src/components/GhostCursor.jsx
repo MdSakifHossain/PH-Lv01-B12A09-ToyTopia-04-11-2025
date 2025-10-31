@@ -1,40 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 const GhostCursor = () => {
-  const [position, setPosition] = useState({ x: 9999, y: 9999 });
-
-  /**
-   *
-   * un-comment this side effect if you think you are gonna need
-   * that cursor at the literal center of the screen
-   * else just leave it bro..
-   *
-   * at first i thought it would be cool.
-   * but now it feels like it's kinda a little too much for me.
-   *
-   * besides, i don't know what the fuck is this code doing..
-   * so i avoided it and now i made my own code..
-   *
-   */
-  // useEffect(() => {
-  //   const centre = () => setPosition({ x: innerWidth / 2, y: innerHeight / 2 });
-  //   centre();
-  //   addEventListener("resize", centre);
-  //   return () => removeEventListener("resize", centre);
-  // }, []);
+  // Always start bottom-right
+  const [position, setPosition] = useState({ x: 9000, y: 5000 });
 
   useEffect(() => {
     const handleMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      // ONLY follow if it's a real mouse
+      if (e.pointerType === "mouse") {
+        setPosition({ x: e.clientX, y: e.clientY });
+      }
+      // Touch/pen? Do nothing → stays at 9999,9999
     };
+
     window.addEventListener("pointermove", handleMove);
     return () => window.removeEventListener("pointermove", handleMove);
   }, []);
 
-  // it is the fully working version. do not touch it. It's sacred.
   return (
     <div
-      className="fixed top-0 left-0 z-99999 pointer-events-none duration-300 ease-out delay-0"
+      className="fixed top-0 left-0 z-99999 pointer-events-none duration-300 ease-out"
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
     >
       <div className="relative -top-3 -left-3 grid place-items-center">
