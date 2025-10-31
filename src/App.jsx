@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <Toaster />
-      <GhostCursor />
+      <GhostCursor className="bg-linear-to-r from-pink-500 to-violet-500" />
       {navigation.state !== "idle" ? (
         <LoadingSpinner />
       ) : (

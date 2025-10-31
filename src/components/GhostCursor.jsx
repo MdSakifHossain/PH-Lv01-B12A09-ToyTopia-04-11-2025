@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const GhostCursor = () => {
+const GhostCursor = ({ className = "" }) => {
   // Always start bottom-right
   const [position, setPosition] = useState({ x: 9000, y: 5000 });
 
@@ -10,7 +10,7 @@ const GhostCursor = () => {
       if (e.pointerType === "mouse") {
         setPosition({ x: e.clientX, y: e.clientY });
       }
-      // Touch/pen? Do nothing → stays at 9999,9999
+      // Touch/pen? Do nothing → stays at position states value.
     };
 
     window.addEventListener("pointermove", handleMove);
@@ -23,8 +23,10 @@ const GhostCursor = () => {
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
     >
       <div className="relative -top-3 -left-3 grid place-items-center">
-        <span className="rounded-full bg-red-500 size-4" />
-        <span className="absolute rounded-full bg-red-500 opacity-60 size-8 animate-ping" />
+        <span className={`rounded-full size-4 bg-red-500 ${className}`} />
+        <span
+          className={`absolute rounded-full opacity-60 size-8 bg-red-500 animate-ping ${className}`}
+        />
       </div>
     </div>
   );
