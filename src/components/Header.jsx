@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import { Utils } from "../utils/utils";
+import { FiLogIn } from "react-icons/fi";
 
 const Header = () => {
   const NavLinks = Utils.NAV_LINKS.map((link) => (
@@ -44,7 +45,7 @@ const Header = () => {
               src="/vite.svg"
               alt="Site Logo"
             />
-            <h3 className="text-2xl">ToyTopia</h3>
+            <h3 className="hidden md:block text-2xl lg:text-3xl">ToyTopia</h3>
           </Link>
         </div>
 
@@ -53,8 +54,9 @@ const Header = () => {
         </div>
 
         <div className="navbar-end">
-          <button className="border border-violet-700 bg-violet-700 px-8 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95">
-            Login
+          <button className="border border-violet-700 bg-violet-700 px-4 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95 flex items-center gap-3">
+            <FiLogIn className="size-5" />
+            <span>Login</span>
           </button>
         </div>
       </div>
