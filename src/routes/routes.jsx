@@ -10,6 +10,7 @@ import SingleCategory from "../pages/SingleCategory";
 import GameDetails from "../pages/GameDetails";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const api_options1 = {
   method: "GET",
@@ -31,6 +32,7 @@ const api_options2 = {
 export const router = createBrowserRouter([
   {
     path: "/",
+    hydrateFallbackElement: <LoadingSpinner />,
     Component: App,
     children: [
       {
