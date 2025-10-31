@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className="font-outfit">
       <div className="container mx-auto navbar my-2 px-4">
-        <div className="navbar-start">
+        <div className="navbar-start flex items-center gap-1.5 md:gap-0">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden pr-2">
               <svg
