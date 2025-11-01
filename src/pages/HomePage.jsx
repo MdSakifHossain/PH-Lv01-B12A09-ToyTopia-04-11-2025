@@ -74,7 +74,7 @@ const HomePage = () => {
         </div>
         <div className="flex items-center justify-center">
           <Link
-            to={`/all-games`}
+            to={`/games`}
             className="px-8 py-4 text-lg font-semibold border-3 border-gray-500 retro-shadow rounded-md transition-all duration-100 hover:scale-105 flex items-center justify-center gap-4"
           >
             Explore More
