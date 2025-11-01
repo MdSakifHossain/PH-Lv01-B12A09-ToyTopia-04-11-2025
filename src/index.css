@@ -7,6 +7,8 @@
 @theme {
   --font-outfit: "Outfit", sans-serif;
   --font-display-mono: "Major Mono Display", sans-serif;
+
+  --shadow-retor: 4px 3px 0 rgb(133, 200, 62);
 }
 
 li a.active {
