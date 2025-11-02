@@ -28,7 +28,7 @@ const RegisterPage = () => {
 
       <section className="w-full sm:px-12 sm:py-12 sm:pb-16 sm:border-4 sm:border-gray-500 sm:rounded-4xl flex flex-col gap-8 lg:gap-14">
         <h1 className="hidden sm:block text-4xl lg:text-5xl text-center font-medium text-gray-200">
-          Create account
+          Create Account
         </h1>
 
         <form
