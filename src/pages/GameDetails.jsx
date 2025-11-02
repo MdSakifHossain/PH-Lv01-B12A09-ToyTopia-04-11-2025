@@ -6,6 +6,7 @@ import { TbCalendar, TbCode, TbTriangleFilled } from "react-icons/tb";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
 import { MdOutlineGamepad } from "react-icons/md";
+import { MdOutlineCategory } from "react-icons/md";
 
 import ChillPill from "../components/ChillPill";
 
@@ -69,7 +70,10 @@ const GameDetails = () => {
               </p>
 
               <div className="flex items-center gap-3">
-                <ChillPill>{genre}</ChillPill>
+                <ChillPill>
+                  <MdOutlineCategory />
+                  {genre}
+                </ChillPill>
                 <ChillPill>
                   <MdOutlineGamepad />
                   {id}
