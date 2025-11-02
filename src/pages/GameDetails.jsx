@@ -5,12 +5,14 @@ import { HiOutlineCpuChip } from "react-icons/hi2";
 import { TbCalendar, TbCode, TbTriangleFilled } from "react-icons/tb";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
+import { MdOutlineGamepad } from "react-icons/md";
 
 const GameDetails = () => {
   const { gameData } = useLoaderData();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   const {
+    id,
     thumbnail,
     title,
     short_description,
@@ -64,9 +66,15 @@ const GameDetails = () => {
                 {short_description}
               </p>
 
-              <span className="border-2 border-violet-500 px-4 lg:px-6 py-1 rounded-full text-sm lg:text-base text-gray-200">
-                {genre}
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="border-2 border-violet-500 px-4 py-0.5 rounded-full text-sm lg:text-base text-gray-200 flex items-center justify-center gap-2">
+                  {genre}
+                </span>
+                <span className="border-2 border-violet-500 px-4 py-0.5 rounded-full text-sm lg:text-base text-gray-200 flex items-center justify-center gap-2">
+                  <MdOutlineGamepad />
+                  {id}
+                </span>
+              </div>
 
               <div className="w-full lg:pe-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
                 <div className="text-gray-300 text-sm lg:text-lg flex flex-col gap-1">
