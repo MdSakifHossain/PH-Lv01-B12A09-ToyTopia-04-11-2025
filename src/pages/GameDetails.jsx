@@ -13,6 +13,9 @@ import ChillPill from "../components/ChillPill";
 const GameDetails = () => {
   const { gameData } = useLoaderData();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const noDataText = (
+    <span className="text-gray-300">"No data provided 😶‍🌫️"</span>
+  );
 
   const {
     id,
@@ -175,30 +178,32 @@ const GameDetails = () => {
                   >
                     <p>
                       <span className="">OS: </span>
-                      <span className="font-medium text-gray-100">{os}</span>
+                      <span className="font-medium text-gray-100">
+                        {os === null ? noDataText : os}
+                      </span>
                     </p>
                     <p>
                       <span className="">Processor: </span>
                       <span className="font-medium text-gray-100">
-                        {processor}
+                        {processor === null ? noDataText : processor}
                       </span>
                     </p>
                     <p>
                       <span className="">Memory: </span>
                       <span className="font-medium text-gray-100">
-                        {memory}
+                        {memory === null ? noDataText : memory}
                       </span>
                     </p>
                     <p>
                       <span className="">Graphics: </span>
                       <span className="font-medium text-gray-100">
-                        {graphics}
+                        {graphics === null ? noDataText : graphics}
                       </span>
                     </p>
                     <p>
                       <span className="">Storage: </span>
                       <span className="font-medium text-gray-100">
-                        {storage}
+                        {storage === null ? noDataText : storage}
                       </span>
                     </p>
                   </div>
