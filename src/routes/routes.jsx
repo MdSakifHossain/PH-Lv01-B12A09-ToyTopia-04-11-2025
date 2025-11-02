@@ -1,16 +1,15 @@
 import { createBrowserRouter } from "react-router";
 
-import App from "../App";
+import App from "../layouts/App";
+import PageNotFound from "../layouts/PageNotFound";
 
 import HomePage from "../pages/HomePage";
-import PageNotFound from "../pages/PageNotFound";
 import AllGames from "../pages/AllGames";
 import AllCategories from "../pages/AllCategories";
 import SingleCategory from "../pages/SingleCategory";
 import GameDetails from "../pages/GameDetails";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-
 import LoadingSpinner from "../components/LoadingSpinner";
 
 import { homeLoader } from "../loaders/homeLoader";

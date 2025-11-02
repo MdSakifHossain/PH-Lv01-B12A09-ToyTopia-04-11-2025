@@ -2,10 +2,9 @@ import React from "react";
 import { Toaster } from "sonner";
 import { Outlet, useNavigation } from "react-router";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import LoadingSpinner from "./components/LoadingSpinner";
-import GhostCursor from "./components/GhostCursor";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import GhostCursor from "../components/GhostCursor";
 
 const App = () => {
   const navigation = useNavigation();
