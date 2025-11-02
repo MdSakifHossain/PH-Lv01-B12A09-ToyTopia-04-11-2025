@@ -7,7 +7,6 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 
 const Slider = ({ data }) => {
-  console.log(data);
   return (
     <Swiper
       spaceBetween={30}

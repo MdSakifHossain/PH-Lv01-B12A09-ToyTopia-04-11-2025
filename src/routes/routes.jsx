@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
-import axios from "axios";
 
 import App from "../App";
+
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
 import AllGames from "../pages/AllGames";
@@ -10,24 +10,13 @@ import SingleCategory from "../pages/SingleCategory";
 import GameDetails from "../pages/GameDetails";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+
 import LoadingSpinner from "../components/LoadingSpinner";
 
-const api_options1 = {
-  method: "GET",
-  url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
-  headers: {
-    "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
-    "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-  },
-};
-const api_options2 = {
-  method: "GET",
-  url: "https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity",
-  headers: {
-    "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
-    "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-  },
-};
+import { homeLoader } from "../loaders/homeLoader";
+import { gamesLoader } from "../loaders/gamesLoader";
+import { gameDetailLoader } from "../loaders/gameDetailLoader";
+import { singleCategoryLoader } from "../loaders/singleCategoryLoader";
 
 export const router = createBrowserRouter([
   {
@@ -37,37 +26,17 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: async () => {
-          const { data: allGames } = await axios.request(api_options1);
-          const { data: popularGames } = await axios.request(api_options2);
-          return { allGames, popularGames };
-        },
+        loader: homeLoader,
         Component: HomePage,
       },
       {
         path: "games",
-        loader: async () => {
-          const { data: popularGames } = await axios.request(api_options2);
-          return { popularGames };
-        },
+        loader: gamesLoader,
         Component: AllGames,
       },
       {
         path: "games/:id",
-        loader: async ({ params }) => {
-          const { id } = params;
-          const api_options4 = {
-            method: "GET",
-            url: `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`,
-            headers: {
-              "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
-              "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-            },
-          };
-
-          const { data: gameData } = await axios.request(api_options4);
-          return { gameData };
-        },
+        loader: gameDetailLoader,
         Component: GameDetails,
       },
       {
@@ -76,20 +45,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "categories/:category",
-        loader: async ({ params }) => {
-          const { category } = params;
-
-          const api_options3 = {
-            method: "GET",
-            url: `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}&sort-by=popularity`,
-            headers: {
-              "x-rapidapi-key": import.meta.env.VITE_x_rapidapi_key,
-              "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-            },
-          };
-          const { data: games } = await axios.request(api_options3);
-          return { games, category };
-        },
+        loader: singleCategoryLoader,
         Component: SingleCategory,
       },
       {
