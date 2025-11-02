@@ -30,15 +30,15 @@ const GameDetails = () => {
           </section>
           <section className="flex flex-col items-center gap-6 lg:gap-12">
             <div className="flex flex-col items-center lg:items-start gap-2 lg:gap-3">
-              <h2 className="text-3xl font-medium">Pathetic!!</h2>
-              <p className="border-l-4 border-violet-500 ps-3 italic">
+              <h2 className="text-3xl lg:text-4xl font-medium">Pathetic!!</h2>
+              <p className="border-l-4 border-violet-500 ps-3 italic lg:text-lg">
                 You really thought i wouldn't Look for this kinda Error!!
               </p>
             </div>
 
             <Link
               to={`/`}
-              className="px-8 py-4 text-lg font-semibold border-3 border-gray-500 retro-shadow rounded-md transition-all duration-100 hover:scale-105 flex items-center justify-center gap-4"
+              className="px-8 py-3.5 lg:py-4 text-lg font-semibold border-3 border-gray-500 retro-shadow rounded-md transition-all duration-100 hover:scale-105 flex items-center justify-center gap-4"
             >
               Goto Homepage
             </Link>
