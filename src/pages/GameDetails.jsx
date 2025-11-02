@@ -7,6 +7,8 @@ import { IoMdInformationCircle } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
 import { MdOutlineGamepad } from "react-icons/md";
 
+import ChillPill from "../components/ChillPill";
+
 const GameDetails = () => {
   const { gameData } = useLoaderData();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -67,13 +69,11 @@ const GameDetails = () => {
               </p>
 
               <div className="flex items-center gap-3">
-                <span className="border-2 border-violet-500 px-4 py-0.5 rounded-full text-sm lg:text-base text-gray-200 flex items-center justify-center gap-2">
-                  {genre}
-                </span>
-                <span className="border-2 border-violet-500 px-4 py-0.5 rounded-full text-sm lg:text-base text-gray-200 flex items-center justify-center gap-2">
+                <ChillPill>{genre}</ChillPill>
+                <ChillPill>
                   <MdOutlineGamepad />
                   {id}
-                </span>
+                </ChillPill>
               </div>
 
               <div className="w-full lg:pe-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
