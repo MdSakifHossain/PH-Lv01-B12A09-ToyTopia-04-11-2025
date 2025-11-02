@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import GhostCursor from "../components/GhostCursor";
 import LoadingSpinner from "../components/LoadingSpinner";
+import TopProgressBar from "../components/TopProgressBar";
 
 const App = () => {
   const navigation = useNavigation();
@@ -14,6 +15,7 @@ const App = () => {
     <>
       <Toaster />
       <GhostCursor />
+      <TopProgressBar />
       {navigation.state !== "idle" ? (
         <LoadingSpinner />
       ) : (
