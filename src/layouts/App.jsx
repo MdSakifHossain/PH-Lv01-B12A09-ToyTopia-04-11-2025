@@ -5,6 +5,7 @@ import { Outlet, useNavigation } from "react-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import GhostCursor from "../components/GhostCursor";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const App = () => {
   const navigation = useNavigation();
