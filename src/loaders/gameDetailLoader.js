@@ -12,6 +12,13 @@ export const gameDetailLoader = async ({ params }) => {
     },
   };
 
-  const { data: gameData } = await axios.request(api_options4);
-  return { gameData };
+  try {
+    const { data: gameData } = await axios.request(api_options4);
+    if (!gameData || !gameData.id) throw new Error();
+
+    return { gameData };
+  } catch (error) {
+    console.log(error);
+    return {};
+  }
 };

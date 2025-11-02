@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useLocation } from "react-router";
 
 import { HiOutlineCpuChip } from "react-icons/hi2";
 import { TbCalendar, TbCode, TbTriangleFilled } from "react-icons/tb";
@@ -12,7 +12,41 @@ import ChillPill from "../components/ChillPill";
 
 const GameDetails = () => {
   const { gameData } = useLoaderData();
+  const location = useLocation();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
+  console.log(location);
+
+  if (!gameData || gameData.error)
+    return (
+      <>
+        <div className="flex-1 font-outfit text-gray-200 py-12 grid grid-cols-1 lg:grid-cols-2 gap-6 *:flex *:flex-col *:items-center *:justify-center">
+          <section>
+            <img
+              className="rounded"
+              src="https://i.giphy.com/LkO4Dov673u80qEjz3.webp"
+              alt="Fully Prepared"
+            />
+          </section>
+          <section className="flex flex-col items-center gap-6 lg:gap-12">
+            <div className="flex flex-col items-center lg:items-start gap-2 lg:gap-3">
+              <h2 className="text-3xl font-medium">Pathetic!!</h2>
+              <p className="border-l-4 border-violet-500 ps-3 italic">
+                You really thought i wouldn't Look for this kinda Error!!
+              </p>
+            </div>
+
+            <Link
+              to={`/`}
+              className="px-8 py-4 text-lg font-semibold border-3 border-gray-500 retro-shadow rounded-md transition-all duration-100 hover:scale-105 flex items-center justify-center gap-4"
+            >
+              Goto Homepage
+            </Link>
+          </section>
+        </div>
+      </>
+    );
+
   const noDataText = (
     <span className="text-gray-300">"No data provided 😶‍🌫️"</span>
   );
@@ -38,7 +72,7 @@ const GameDetails = () => {
   const prettyDate = (raw_format) => {
     const [y, m, d] = raw_format.split("-");
     const month = new Date(y, m - 1).toLocaleString("en-US", {
-      // month - "short", "long"
+      // month: "short", "long"
       month: "long",
     });
     return `${month} ${Number(d)}, ${y}`;
