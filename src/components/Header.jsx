@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import { Utils } from "../utils/utils";
-import { FiLogIn } from "react-icons/fi";
 
 const Header = () => {
   const NavLinks = Utils.NAV_LINKS.map((link) => (
@@ -54,8 +53,7 @@ const Header = () => {
         </div>
 
         <div className="navbar-end">
-          <button className="border border-violet-700 bg-violet-700 px-4 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95 flex items-center gap-3">
-            <FiLogIn className="size-5" />
+          <button className="border border-violet-700 bg-violet-700 px-7 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95 flex items-center gap-3">
             <span>Login</span>
           </button>
         </div>
