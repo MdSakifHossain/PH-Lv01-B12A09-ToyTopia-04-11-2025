@@ -38,7 +38,7 @@ const GameDetails = () => {
 
             <Link
               to={`/`}
-              className="px-8 py-3.5 lg:py-4 text-lg font-semibold border-3 border-gray-500 retro-shadow rounded-md transition-all duration-100 hover:scale-105 flex items-center justify-center gap-4"
+              className="px-8 py-3.5 lg:py-4 text-base lg:text-lg font-semibold border-3 border-gray-500 retro-shadow rounded-md transition-all duration-100 hover:scale-105 flex items-center justify-center gap-4"
             >
               Goto Homepage
             </Link>
