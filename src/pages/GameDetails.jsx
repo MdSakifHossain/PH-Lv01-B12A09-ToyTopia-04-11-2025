@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { HiOutlineCpuChip } from "react-icons/hi2";
 import { TbCalendar, TbCode, TbTriangleFilled } from "react-icons/tb";
 import { IoMdInformationCircle } from "react-icons/io";
-import { FaArrowLeft, FaCircleCheck } from "react-icons/fa6";
+import { FaArrowLeft, FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
 import { MdOutlineGamepad, MdOutlineCategory } from "react-icons/md";
 
 import ChillPill from "../components/ChillPill";
@@ -21,7 +21,17 @@ const GameDetails = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (!email.trim() && !name.trim()) return;
+    if (!email.trim() && !name.trim()) {
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Fill in the Form first!!
+          </p>
+        </CustomToast>
+      ));
+      return;
+    }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (!emailPattern.test(email)) return;
