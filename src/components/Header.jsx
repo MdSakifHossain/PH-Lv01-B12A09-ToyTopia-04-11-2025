@@ -8,6 +8,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
+  console.log(user);
 
   const handleSignOut = async () => {
     try {
@@ -78,12 +79,24 @@ const Header = () => {
 
         <div className="navbar-end">
           {user ? (
-            <button
-              onClick={() => handleSignOut()}
-              className="my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
-            >
-              Logout
-            </button>
+            <div className="flex items-center justify-center gap-4">
+              <div
+                className="lg:tooltip lg:tooltip-left"
+                data-tip={user.displayName}
+              >
+                <img
+                  className="size-12 border-3 border-violet-500 rounded-full"
+                  src={user.photoURL}
+                  alt={user.email}
+                />
+              </div>
+              <button
+                onClick={() => handleSignOut()}
+                className="my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
+              >
+                Logout
+              </button>
+            </div>
           ) : (
             <Link to={`/login`} className="my-btn hover:ring-violet-400">
               Login
