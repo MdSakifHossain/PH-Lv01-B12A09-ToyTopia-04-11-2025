@@ -108,7 +108,7 @@ const GameDetails = () => {
           All Games
         </Link>
 
-        <div className="flex-1 w-full border-4 border-gray-500 retro-shadow rounded-2xl font-outfit px-6 lg:px-8 py-6 lg:py-8 md:pt-8 min-h-svh flex flex-col gap-12 lg:gap-16">
+        <div className="flex-1 w-full border-4 border-gray-500 retro-shadow rounded-2xl font-outfit px-6 lg:px-8 py-6 lg:py-8 md:pt-8 lg:pb-12 min-h-svh flex flex-col gap-12 lg:gap-16">
           <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-20">
             <img
               className="w-full mx-auto rounded-2xl"
@@ -290,7 +290,7 @@ const GameDetails = () => {
           </section>
         </div>
 
-        <section className="w-full mx-auto flex flex-col gap-6">
+        <section className="w-full mx-auto mt-16 flex flex-col gap-6">
           {isSubmitted ? (
             <div className="relative w-full sm:w-10/12 mx-auto rounded-2xl px-4 lg:px-24 py-8 lg:pb-12 retro-shadow border-4 border-gray-500 flex flex-col gap-8">
               {!isSubmitted && (
