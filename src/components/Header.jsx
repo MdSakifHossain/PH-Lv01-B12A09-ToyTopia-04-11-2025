@@ -9,8 +9,8 @@ const Header = () => {
   const handleSignOut = async () => {
     try {
       signOutUser();
-      console.log("sing out successful!");
-      alert("Sign Out Successful!");
+      console.log("sing out successful! 👾");
+      alert("Sign Out Successful! 👾");
     } catch (error) {
       console.error(error);
     }
@@ -71,17 +71,13 @@ const Header = () => {
           {user ? (
             <button
               onClick={() => handleSignOut()}
-              className="my-btn rounded-full!"
+              className="my-btn px-7! py-2! rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
             >
               Logout
             </button>
           ) : (
-            <Link
-              to={`/login`}
-              // className="border border-violet-700 bg-violet-700 px-7 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95 flex items-center gap-3"
-              className="my-btn bg-transparent! border-2!"
-            >
-              <span>Login</span>
+            <Link to={`/login`} className="my-btn hover:ring-violet-400">
+              Login
             </Link>
           )}
         </div>

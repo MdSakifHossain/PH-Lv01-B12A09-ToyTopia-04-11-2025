@@ -16,7 +16,14 @@ li a.active {
 }
 
 .my-btn {
-  @apply border border-violet-700 bg-violet-700 px-8 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95;
+  @apply bg-violet-700 border border-violet-700 
+          px-8 py-2 
+          text-base lg:text-lg font-semibold 
+          rounded-lg 
+          transition-all duration-200 
+          hover:ring-3 
+          active:scale-95
+          flex items-center justify-center gap-2;
 }
 
 .body {
