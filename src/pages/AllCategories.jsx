@@ -1,7 +1,7 @@
 import React from "react";
 import { Utils } from "../utils/utils";
-import { Link } from "react-router";
-import { FaArrowUpLong } from "react-icons/fa6";
+
+import CategoryCard from "../components/CategoryCard";
 
 const AllCategories = () => {
   return (
@@ -16,23 +16,8 @@ const AllCategories = () => {
           </h3>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {Utils.ALL_CATEGORIES.map((cat) => (
-            <Link
-              to={cat.href}
-              className="border-4 border-zinc-600 px-6 py-6 text-base lg:text-xl font-medium select-none truncate
-                transition-all duration-150 
-                hover:scale-105 hover:border-violet-500
-                active:scale-95 
-                flex items-center justify-between gap-3 
-                group"
-              key={cat.id}
-            >
-              {cat.display}
-              <FaArrowUpLong
-                stroke={2}
-                className="text-xl text-violet-400 hidden rotate-45 transition-all duration-150 group-hover:block"
-              />
-            </Link>
+          {Utils.ALL_CATEGORIES.map((category) => (
+            <CategoryCard key={category.id} category={category} />
           ))}
         </div>
       </section>

@@ -6,6 +6,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 import Slider from "../components/Slider";
 import { Utils } from "../utils/utils";
 import GameCard from "../components/GameCard";
+import CategoryCard from "../components/CategoryCard";
 
 const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
@@ -42,14 +43,8 @@ const HomePage = () => {
           <span className="text-lime-400">Categories: </span>
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {Utils.ALL_CATEGORIES.slice(0, 18).map((cat) => (
-            <span
-              // className="bg-zinc-700 px-6 py-6 text-base lg:text-xl font-medium rounded-md select-none transition-all duration-200 ease-out hover:scale-110 hover:-translate-y-0.5 hover:shadow-2xl hover:rounded-lg hover:retro-shadow"
-              className="bg-zinc-700 px-6 py-6 text-base lg:text-xl font-medium rounded-md select-none"
-              key={cat.id}
-            >
-              {cat.display}
-            </span>
+          {Utils.ALL_CATEGORIES.slice(0, 18).map((category) => (
+            <CategoryCard key={category.id} category={category} />
           ))}
         </div>
         <div className="flex items-center justify-center">
