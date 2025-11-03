@@ -9,6 +9,7 @@ import { FaArrowLeft, FaCircleCheck } from "react-icons/fa6";
 import { MdOutlineGamepad, MdOutlineCategory } from "react-icons/md";
 
 import ChillPill from "../components/ChillPill";
+import CustomToast from "../components/CustomToast";
 
 const GameDetails = () => {
   const { gameData } = useLoaderData();
@@ -26,10 +27,10 @@ const GameDetails = () => {
     if (!emailPattern.test(email)) return;
 
     toast.custom(() => (
-      <div className="bg-[rgb(32,39,55)] text-gray-100 retro-shadow border-4 border-zinc-600 px-6 lg:px-8 py-6 font-outfit rounded-lg flex items-center justify-start gap-4 select-none">
+      <CustomToast>
         <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
         <p className="text-lg font-medium lg:text-xl">Check your email.</p>
-      </div>
+      </CustomToast>
     ));
 
     setEmail("");

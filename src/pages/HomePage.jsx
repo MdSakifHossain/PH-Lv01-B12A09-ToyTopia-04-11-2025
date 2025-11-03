@@ -7,6 +7,7 @@ import Slider from "../components/Slider";
 import { Utils } from "../utils/utils";
 import GameCard from "../components/GameCard";
 import CategoryCard from "../components/CategoryCard";
+import CustomToast from "../components/CustomToast";
 
 const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
@@ -21,12 +22,12 @@ const HomePage = () => {
     if (!emailPattern.test(email)) return;
 
     toast.custom(() => (
-      <div className="bg-[rgb(32,39,55)] text-gray-100 retro-shadow border-4 border-zinc-600 px-6 lg:px-8 py-6 font-outfit rounded-lg flex items-center justify-start gap-4 select-none">
+      <CustomToast>
         <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
         <p className="text-lg font-medium lg:text-xl">
           Thank You for Subscribing.
         </p>
-      </div>
+      </CustomToast>
     ));
 
     setEmail("");
