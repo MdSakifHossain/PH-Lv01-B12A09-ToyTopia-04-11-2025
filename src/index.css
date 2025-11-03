@@ -17,7 +17,7 @@ li a.active {
 
 .my-btn {
   @apply bg-violet-700 border border-violet-700 
-          px-8 py-2 
+          px-7 py-2 
           text-base lg:text-lg font-semibold 
           rounded-lg 
           transition-all duration-200 

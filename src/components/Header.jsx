@@ -18,7 +18,7 @@ const Header = () => {
 
   const NavLinks = Utils.NAV_LINKS.filter((link) => !link.hidden).map(
     (link) => (
-      <li key={link.id}>
+      <li className="text-xl" key={link.id}>
         <NavLink to={link.href}>{link.display}</NavLink>
       </li>
     )
@@ -71,7 +71,7 @@ const Header = () => {
           {user ? (
             <button
               onClick={() => handleSignOut()}
-              className="my-btn px-7! py-2! rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
+              className="my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
             >
               Logout
             </button>
