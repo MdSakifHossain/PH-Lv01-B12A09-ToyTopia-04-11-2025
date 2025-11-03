@@ -2,9 +2,11 @@ import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 
-import { FaGoogle } from "react-icons/fa6";
+import { FaCircleCheck, FaGoogle } from "react-icons/fa6";
 
 import Divider from "./../components/Divider";
+import { toast } from "sonner";
+import CustomToast from "../components/CustomToast";
 
 const LoginPage = () => {
   const { signInWithGoogle } = use(AuthContext);
@@ -15,6 +17,14 @@ const LoginPage = () => {
     try {
       await signInWithGoogle();
       navigate(location.state || "/");
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Log in successful! ✨
+          </p>
+        </CustomToast>
+      ));
     } catch (error) {
       console.error(error);
     }
