@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 
 import App from "../layouts/App";
 import PageNotFound from "../layouts/PageNotFound";
+import PrivatePage from "../layouts/PrivatePage";
 
 import HomePage from "../pages/HomePage";
 import AllGames from "../pages/AllGames";
@@ -31,12 +32,20 @@ export const router = createBrowserRouter([
       {
         path: "games",
         loader: gamesLoader,
-        Component: AllGames,
+        element: (
+          <PrivatePage>
+            <AllGames />
+          </PrivatePage>
+        ),
       },
       {
         path: "games/:id",
         loader: gameDetailLoader,
-        Component: GameDetails,
+        element: (
+          <PrivatePage>
+            <GameDetails />
+          </PrivatePage>
+        ),
       },
       {
         path: "categories",
@@ -45,7 +54,11 @@ export const router = createBrowserRouter([
       {
         path: "categories/:category",
         loader: singleCategoryLoader,
-        Component: SingleCategory,
+        element: (
+          <PrivatePage>
+            <SingleCategory />
+          </PrivatePage>
+        ),
       },
       {
         path: "login",

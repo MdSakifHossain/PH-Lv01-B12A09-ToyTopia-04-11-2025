@@ -1,10 +1,25 @@
-import React from "react";
+import React, { use } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../contexts/AuthContext/AuthContext";
+
 import { FaGoogle } from "react-icons/fa6";
 
 import Divider from "./../components/Divider";
-import { Link } from "react-router";
 
 const LoginPage = () => {
+  const { signInWithGoogle } = use(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      navigate(location.state || "/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="flex-1 font-outfit px-4 sm:px-8 py-12 grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 my-auto">
       <section className="xl:order-2 flex items-center justify-center flex-col gap-4">
@@ -71,7 +86,10 @@ const LoginPage = () => {
         />
 
         <div className="w-full flex flex-col gap-8 items-center">
-          <button className="w-full sm:w-10/12 text-lg lg:text-xl font-medium border-4 border-gray-500 retro-shadow px-10 py-4 flex items-center justify-center gap-4 transition-all duration-150 active:scale-95 focus-visible:outline-0 focus-visible:scale-103">
+          <button
+            onClick={() => handleGoogleLogin()}
+            className="w-full sm:w-10/12 text-lg lg:text-xl font-medium border-4 border-gray-500 retro-shadow px-10 py-4 flex items-center justify-center gap-4 transition-all duration-150 active:scale-95 focus-visible:outline-0 focus-visible:scale-103"
+          >
             <FaGoogle />
             Login with Google
           </button>
