@@ -1,8 +1,21 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { Utils } from "../utils/utils";
+import { AuthContext } from "../contexts/AuthContext/AuthContext";
 
 const Header = () => {
+  const { user, signOutUser } = use(AuthContext);
+
+  const handleSignOut = async () => {
+    try {
+      signOutUser();
+      console.log("sing out successful!");
+      alert("Sign Out Successful!");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const NavLinks = Utils.NAV_LINKS.filter((link) => !link.hidden).map(
     (link) => (
       <li key={link.id}>
@@ -55,9 +68,22 @@ const Header = () => {
         </div>
 
         <div className="navbar-end">
-          <button className="border border-violet-700 bg-violet-700 px-7 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95 flex items-center gap-3">
-            <span>Login</span>
-          </button>
+          {user ? (
+            <button
+              onClick={() => handleSignOut()}
+              className="my-btn rounded-full!"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to={`/login`}
+              // className="border border-violet-700 bg-violet-700 px-7 py-2 text-base lg:text-lg font-semibold rounded-lg transition-all duration-150 active:scale-95 flex items-center gap-3"
+              className="my-btn bg-transparent! border-2!"
+            >
+              <span>Login</span>
+            </Link>
+          )}
         </div>
       </div>
     </header>
