@@ -18,7 +18,7 @@ const Header = () => {
 
   const NavLinks = Utils.NAV_LINKS.filter((link) => !link.hidden).map(
     (link) => (
-      <li className="text-xl" key={link.id}>
+      <li className="text-lg" key={link.id}>
         <NavLink to={link.href}>{link.display}</NavLink>
       </li>
     )
