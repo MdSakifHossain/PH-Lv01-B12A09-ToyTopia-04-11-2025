@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { toast } from "sonner";
-import { FaCircleCheck } from "react-icons/fa6";
+import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
 
 import Slider from "../components/Slider";
 import { Utils } from "../utils/utils";
@@ -16,7 +16,17 @@ const HomePage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!email.trim()) {
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            write your email first!!
+          </p>
+        </CustomToast>
+      ));
+      return;
+    }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (!emailPattern.test(email)) return;
