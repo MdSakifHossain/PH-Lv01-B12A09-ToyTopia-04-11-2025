@@ -3,11 +3,13 @@ import { Link, NavLink } from "react-router";
 import { Utils } from "../utils/utils";
 
 const Header = () => {
-  const NavLinks = Utils.NAV_LINKS.map((link) => (
-    <li key={link.id}>
-      <NavLink to={link.href}>{link.display}</NavLink>
-    </li>
-  ));
+  const NavLinks = Utils.NAV_LINKS.filter((link) => !link.hidden).map(
+    (link) => (
+      <li key={link.id}>
+        <NavLink to={link.href}>{link.display}</NavLink>
+      </li>
+    )
+  );
 
   return (
     <header className="font-outfit">

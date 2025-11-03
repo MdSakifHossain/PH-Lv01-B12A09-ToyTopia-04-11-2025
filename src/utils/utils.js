@@ -1,10 +1,10 @@
 export const Utils = {
   NAV_LINKS: [
-    { id: 1, display: "Home", href: "/" },
-    { id: 2, display: "Games", href: "/games" },
-    { id: 3, display: "Categories", href: "/categories" },
-    { id: 4, display: "Login", href: "/login" },
-    { id: 5, display: "Register", href: "/register" },
+    { id: 1, display: "Home", href: "/", hidden: false },
+    { id: 2, display: "Games", href: "/games", hidden: false },
+    { id: 3, display: "Categories", href: "/categories", hidden: false },
+    { id: 4, display: "Login", href: "/login", hidden: true },
+    { id: 5, display: "Register", href: "/register", hidden: true },
   ],
   ALL_CATEGORIES: [
     { id: 1, display: "MMO", href: "/categories/mmo" },
