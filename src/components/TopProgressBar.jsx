@@ -19,7 +19,7 @@ const TopProgressBar = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 h-0.5 lg:h-1 bg-red-600 z-99999 rounded-e-full"
+      className="fixed top-0 left-0 h-1.5 bg-cyan-400 z-99999"
       style={{ width: `${width}%` }}
     ></div>
   );
