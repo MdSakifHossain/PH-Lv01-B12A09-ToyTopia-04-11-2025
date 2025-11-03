@@ -7,7 +7,7 @@ const PrivatePage = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <span className="loading loading-spinner text-warning"></span>;
+    return <p className="text-2xl">loading...</p>;
   }
 
   if (user) {
