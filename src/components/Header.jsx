@@ -16,7 +16,7 @@ const Header = () => {
         <CustomToast>
           <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
           <p className="text-lg font-medium lg:text-xl">
-            Sign Out Successful! 👾
+            Successful Logged Out! ✨
           </p>
         </CustomToast>
       ));
