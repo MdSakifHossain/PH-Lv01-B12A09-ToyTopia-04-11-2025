@@ -2,6 +2,9 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { Utils } from "../utils/utils";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
+import { toast } from "sonner";
+import CustomToast from "./CustomToast";
+import { FaCircleCheck } from "react-icons/fa6";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -9,8 +12,14 @@ const Header = () => {
   const handleSignOut = async () => {
     try {
       signOutUser();
-      console.log("sing out successful! 👾");
-      alert("Sign Out Successful! 👾");
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Sign Out Successful! 👾
+          </p>
+        </CustomToast>
+      ));
     } catch (error) {
       console.error(error);
     }
