@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
 
 import Slider from "../components/Slider";
-import { Utils } from "../utils/utils";
+import { Constants } from "../constants";
 import GameCard from "../components/GameCard";
 import CategoryCard from "../components/CategoryCard";
 import CustomToast from "../components/CustomToast";
@@ -54,7 +54,7 @@ const HomePage = () => {
           <span className="text-lime-400">Categories: </span>
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {Utils.ALL_CATEGORIES.slice(0, 18).map((category) => (
+          {Constants.ALL_CATEGORIES.slice(0, 18).map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
         </div>

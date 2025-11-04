@@ -1,5 +1,5 @@
 import React from "react";
-import { Utils } from "../utils/utils";
+import { Constants } from "../constants";
 
 import CategoryCard from "../components/CategoryCard";
 
@@ -16,7 +16,7 @@ const AllCategories = () => {
           </h3>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {Utils.ALL_CATEGORIES.map((category) => (
+          {Constants.ALL_CATEGORIES.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
         </div>

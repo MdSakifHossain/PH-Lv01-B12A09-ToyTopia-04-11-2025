@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
-import { Utils } from "../utils/utils";
+import { Constants } from "../constants";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { toast } from "sonner";
 import CustomToast from "./CustomToast";
@@ -27,7 +27,7 @@ const Header = () => {
     }
   };
 
-  const NavLinks = Utils.NAV_LINKS.filter((link) => !link.hidden).map(
+  const NavLinks = Constants.NAV_LINKS.filter((link) => !link.hidden).map(
     (link) => (
       <li className="text-lg" key={link.id}>
         <NavLink to={link.href}>{link.display}</NavLink>
