@@ -8,7 +8,9 @@
   --font-outfit: "Outfit", sans-serif;
   --font-display-mono: "Major Mono Display", sans-serif;
 
-  --shadow-retor: 4px 3px 0 rgb(133, 200, 62);
+  --color-dominant: rgb(133, 200, 62);
+
+  --shadow-retor: 4px 3px 0 var(--color-dominant);
 }
 
 li a.active {

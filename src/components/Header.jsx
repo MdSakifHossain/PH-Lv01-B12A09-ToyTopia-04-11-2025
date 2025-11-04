@@ -5,6 +5,7 @@ import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { toast } from "sonner";
 import CustomToast from "./CustomToast";
 import { FaCircleCheck } from "react-icons/fa6";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -35,7 +36,7 @@ const Header = () => {
   );
 
   return (
-    <header className="font-outfit">
+    <header className="font-outfit select-none">
       <div className="container mx-auto navbar my-2 px-4">
         <div className="navbar-start flex items-center gap-1.5 md:gap-0">
           <div className="dropdown">
@@ -47,13 +48,12 @@ const Header = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
@@ -80,16 +80,48 @@ const Header = () => {
         <div className="navbar-end">
           {user ? (
             <div className="flex items-center justify-center gap-4">
-              <div
-                className="lg:tooltip lg:tooltip-left"
-                data-tip={user.displayName}
-              >
-                <img
-                  className="size-12 border-3 border-violet-500 rounded-full"
-                  src={user.photoURL}
-                  alt={user.email}
-                />
+              <div className="dropdown dropdown-center">
+                <div
+                  className="lg:tooltip lg:tooltip-left"
+                  data-tip={user.displayName}
+                >
+                  <img
+                    tabIndex={0}
+                    className="size-12 transition-all duration-150 ease-out hover:ring-3 hover:ring-violet-500 rounded-full"
+                    src={user.photoURL}
+                    alt={user.displayName}
+                  />
+                </div>
+                <div
+                  tabIndex={0}
+                  className="dropdown-content card card-sm z-1 w-96 mt-5 shadow border-4 border-gray-500 retro-shadow body rounded-xl"
+                >
+                  <div className="card-body pb-6 flex flex-col gap-5 items-center justify-center">
+                    <img
+                      className="size-20 rounded-full ring-3 ring-violet-500"
+                      src={user.photoURL}
+                      alt={user.displayName}
+                    />
+                    <div className="flex flex-col gap-0 items-center">
+                      <h4 className="text-lg font-semibold [word-spacing:0.15rem]">
+                        {user.displayName}
+                      </h4>
+                      <p className="text-sm text-gray-300 tracking-wide">
+                        {user.email}
+                      </p>
+                    </div>
+
+                    <Link
+                      to={`/profile`}
+                      className="group w-full sm:w-10/12 text-lg text-white px-10 py-2 md:py-3 border-3 border-gray-500 retro-shadow font-medium flex items-center justify-center gap-2 transition-all duration-300 ease-out active:scale-95 focus-visible:outline-0"
+                    >
+                      Go to Profile{" "}
+                      <MdOutlineKeyboardDoubleArrowRight className="text-2xl " />
+                    </Link>
+                  </div>
+                </div>
               </div>
+
               <button
                 onClick={() => handleSignOut()}
                 className="my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
