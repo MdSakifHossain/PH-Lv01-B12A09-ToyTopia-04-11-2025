@@ -150,31 +150,16 @@ const GameDetails = () => {
               <div className="w-full lg:pe-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
                 <div className="text-gray-300 text-sm lg:text-lg flex flex-col gap-1">
                   <div className="flex items-center justify-start gap-3.5">
-                    <div className="tooltip tooltip-left">
-                      <div className="tooltip-content text-xl font-medium px-8 py-1.5 bg-[rgb(32,39,55)] border-2 border-gray-500 rounded-none retro-shadow ">
-                        Platform / OS
-                      </div>
-                      <HiOutlineCpuChip className="text-lg lg:text-2xl" />
-                    </div>
+                    <HiOutlineCpuChip className="text-lg lg:text-2xl" />
                     <span>{platform}</span>
                   </div>
 
                   <div className="flex items-center justify-start gap-3.5">
-                    <div className="tooltip tooltip-left">
-                      <div className="tooltip-content text-xl font-medium px-8 py-1.5 bg-[rgb(32,39,55)] border-2 border-gray-500 rounded-none retro-shadow ">
-                        Developer
-                      </div>
-                      <TbCode className="text-lg lg:text-2xl" />
-                    </div>
+                    <TbCode className="text-lg lg:text-2xl" />
                     <span>{developer}</span>
                   </div>
                   <div className="flex items-center justify-start gap-3.5">
-                    <div className="tooltip tooltip-left">
-                      <div className="tooltip-content text-xl font-medium px-8 py-1.5 bg-[rgb(32,39,55)] border-2 border-gray-500 rounded-none retro-shadow ">
-                        Release Date
-                      </div>
-                      <TbCalendar className="text-lg lg:text-2xl" />
-                    </div>
+                    <TbCalendar className="text-lg lg:text-2xl" />
                     <span>{prettyDate(release_date)}</span>
                   </div>
                 </div>
