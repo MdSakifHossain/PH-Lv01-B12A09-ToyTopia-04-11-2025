@@ -11,13 +11,14 @@ import SingleCategory from "../pages/SingleCategory";
 import GameDetails from "../pages/GameDetails";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import ProfilePage from "../pages/ProfilePage";
+
 import LoadingSpinner from "../components/LoadingSpinner";
 
 import { homeLoader } from "../loaders/homeLoader";
 import { gamesLoader } from "../loaders/gamesLoader";
 import { gameDetailLoader } from "../loaders/gameDetailLoader";
 import { singleCategoryLoader } from "../loaders/singleCategoryLoader";
-import ProfilePage from "../pages/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -71,7 +72,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        Component: ProfilePage,
+        element: (
+          <PrivatePage>
+            <ProfilePage />
+          </PrivatePage>
+        ),
       },
     ],
   },
