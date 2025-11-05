@@ -5,17 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+import { shuffleArray } from "../utils";
 
 const Slider = ({ data }) => {
-  // Fisher–Yates (Knuth) shuffle algorithm
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  };
-
   return (
     <Swiper
       spaceBetween={30}
