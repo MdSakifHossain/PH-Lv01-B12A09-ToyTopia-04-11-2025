@@ -17,6 +17,7 @@ import { homeLoader } from "../loaders/homeLoader";
 import { gamesLoader } from "../loaders/gamesLoader";
 import { gameDetailLoader } from "../loaders/gameDetailLoader";
 import { singleCategoryLoader } from "../loaders/singleCategoryLoader";
+import ProfilePage from "../pages/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "register",
         Component: RegisterPage,
+      },
+      {
+        path: "profile",
+        Component: ProfilePage,
       },
     ],
   },
