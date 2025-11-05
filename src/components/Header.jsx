@@ -94,7 +94,7 @@ const Header = () => {
                 </div>
                 <div
                   tabIndex={0}
-                  className="dropdown-content card card-sm z-1 w-96 mt-5 shadow border-4 border-gray-500 retro-shadow body rounded-xl"
+                  className="dropdown-content card card-sm z-10 w-96 mt-5 shadow border-4 border-gray-500 retro-shadow body rounded-xl"
                 >
                   <div className="card-body pb-6 flex flex-col gap-5 items-center justify-center">
                     <img
