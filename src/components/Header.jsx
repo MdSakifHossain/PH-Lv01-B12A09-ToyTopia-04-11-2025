@@ -119,6 +119,12 @@ const Header = () => {
                       Go to Profile{" "}
                       <MdOutlineKeyboardDoubleArrowRight className="text-2xl " />
                     </Link>
+                    <button
+                      onClick={() => handleSignOut()}
+                      className="sm:hidden! my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300 w-full"
+                    >
+                      Logout
+                    </button>
                   </div>
                 </div>
               </div>
