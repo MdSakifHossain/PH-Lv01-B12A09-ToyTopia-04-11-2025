@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import CustomToast from "./CustomToast";
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { detectMobile } from "../utils";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -124,7 +125,7 @@ const Header = () => {
 
               <button
                 onClick={() => handleSignOut()}
-                className="my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
+                className="hidden! sm:block! my-btn rounded-full! bg-red-700! border-red-700! hover:ring-red-300"
               >
                 Logout
               </button>

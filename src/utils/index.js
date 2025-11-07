@@ -6,3 +6,14 @@ export const shuffleArray = (array) => {
   }
   return array;
 };
+
+export const detectMobile = ({ maxWidth = 768 } = {}) => {
+  const ua = navigator.userAgent || "";
+  const uaMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+
+  const isNarrow =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia(`(max-width: ${maxWidth}px)`).matches;
+
+  return uaMobile || isNarrow;
+};
