@@ -6,7 +6,6 @@ import { toast } from "sonner";
 import CustomToast from "./CustomToast";
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import { detectMobile } from "../utils";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -81,23 +80,23 @@ const Header = () => {
         <div className="navbar-end">
           {user ? (
             <div className="flex items-center justify-center gap-4">
-              <div className="dropdown dropdown-center">
+              <div className="dropdown dropdown-end">
                 <div
                   className="lg:tooltip lg:tooltip-left"
                   data-tip={user.displayName}
                 >
                   <img
                     tabIndex={0}
-                    className="size-12 transition-all duration-150 ease-out hover:ring-3 hover:ring-violet-500 rounded-full"
+                    className="size-11 sm:size-12 transition-all duration-150 ease-out ring-2 sm:ring-3 ring-violet-500 rounded-full"
                     src={user.photoURL}
                     alt={user.displayName}
                   />
                 </div>
                 <div
                   tabIndex={0}
-                  className="dropdown-content card card-sm z-10 w-96 mt-5 shadow border-4 border-gray-500 retro-shadow body rounded-xl"
+                  className="dropdown-content card card-sm z-10 w-80 sm:w-md mt-4 border-4 border-gray-500 retro-shadow body rounded-xl"
                 >
-                  <div className="card-body pb-6 flex flex-col gap-5 items-center justify-center">
+                  <div className="card-body py-6 flex flex-col gap-5 items-center justify-center">
                     <img
                       className="size-20 rounded-full ring-3 ring-violet-500"
                       src={user.photoURL}
