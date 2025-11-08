@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { Constants } from "../constants";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { toast } from "sonner";
@@ -9,6 +9,7 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
 
   const handleSignOut = async () => {
@@ -22,6 +23,7 @@ const Header = () => {
           </p>
         </CustomToast>
       ));
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
