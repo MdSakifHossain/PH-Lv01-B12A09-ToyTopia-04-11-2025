@@ -18,7 +18,7 @@ const AllGames = () => {
   }, [searchQuery, popularGames]);
 
   return (
-    <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-16">
+    <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-12 lg:gap-16">
       <section className="w-full grid grid-cols-1 xl:grid-cols-3 gap-8">
         <div className="order-2 xl:order-1 flex flex-col gap-4">
           <h2 className="text-3xl lg:text-4xl font-semibold">
@@ -52,15 +52,15 @@ const AllGames = () => {
             ))}
           </div>
         ) : (
-          <div className="flex-1 flex flex-col items-center justify-center gap-8">
-            <h1 className="text-7xl">(⌣_⌣”)</h1>
-            <h2 className="font-display-mono text-5xl">nO gAme fOuNd</h2>
-            <p className="text-2xl font-light text-gray-400">
-              Are you searching for{" "}
-              <span className="text-gray-200 text-4xl font-semibold underline underline-offset-8 decoration-2 decoration-violet-500">
-                {searchQuery}
-              </span>
-            </p>
+          <div className="flex-1 flex flex-col items-center justify-center gap-6 lg:gap-12">
+            <img
+              className="w-5/12 lg:w-2/12 rounded"
+              src="https://i.giphy.com/WTcgPMgv07ifUiipBF.webp"
+              alt="not-found"
+            />
+            <h2 className="font-display-mono text-2xl lg:text-4xl">
+              nO gAme fouNd
+            </h2>
           </div>
         )}
       </section>
