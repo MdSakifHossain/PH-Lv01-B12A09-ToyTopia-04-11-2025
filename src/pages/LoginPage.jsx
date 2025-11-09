@@ -83,7 +83,7 @@ const LoginPage = () => {
               name="password"
             />
             <Link
-              to={`/fogot`}
+              to={`/forgot`}
               className="ps-3 text-base underline underline-offset-2 hover:decoration-violet-500"
             >
               Forgot Password?
