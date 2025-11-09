@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
-import { LuSend, LuCircleX } from "react-icons/lu";
+import { LuSend, LuCircleX, LuSettings } from "react-icons/lu";
 
 const ProfilePage = () => {
   const { user } = use(AuthContext);
@@ -56,9 +56,11 @@ const ProfilePage = () => {
 
             <button
               onClick={() => setIsOpenUpdateForm(true)}
-              className="px-12 py-4 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
+              // className="group px-12 py-4 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
+              className="group px-12 py-4 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out"
             >
-              Update Profile <LuSend className="text-2xl" />
+              Update Profile{" "}
+              <LuSettings className="text-2xl transition-all duration-200 ease-out group-hover:rotate-90" />
             </button>
           </section>
         </>
@@ -122,6 +124,7 @@ const ProfilePage = () => {
             >
               Cancel
             </button>
+            {/* this update button will navigate you to the /profile route */}
             <button className="px-12 py-4 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103">
               Update Profile <LuSend className="text-2xl" />
             </button>
