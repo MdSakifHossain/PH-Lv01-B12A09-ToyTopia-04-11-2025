@@ -82,7 +82,7 @@ const Header = () => {
         <div className="navbar-end">
           {user ? (
             <div className="flex items-center justify-center gap-4">
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-hover dropdown-end">
                 <div
                   className="lg:tooltip lg:tooltip-left"
                   data-tip={user.displayName}
@@ -96,7 +96,7 @@ const Header = () => {
                 </div>
                 <div
                   tabIndex={0}
-                  className="dropdown-content card card-sm z-10 w-80 sm:w-md mt-4 border-4 border-gray-500 retro-shadow body rounded-xl"
+                  className="dropdown-content card card-sm z-10 w-80 sm:w-md border-4 border-gray-500 retro-shadow body rounded-xl"
                 >
                   <div className="card-body py-6 flex flex-col gap-5 items-center justify-center">
                     <img
