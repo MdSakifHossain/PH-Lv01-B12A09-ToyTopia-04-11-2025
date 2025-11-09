@@ -60,7 +60,7 @@ const ProfilePage = () => {
               className="group px-12 py-4 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out"
             >
               Update Profile{" "}
-              <LuSettings className="text-2xl transition-all duration-200 ease-out group-hover:rotate-90" />
+              <LuSettings className="text-2xl transition-all duration-200 ease-out group-hover:rotate-45" />
             </button>
           </section>
         </>
