@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import CustomToast from "../components/CustomToast";
 import { FaCircleCheck } from "react-icons/fa6";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const ForgotPage = () => {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const ForgotPage = () => {
           </h1>
           <form
             onSubmit={(e) => handleFormSubmit(e)}
-            className="border-4 border-gray-500 w-6/12 px-12 py-12 pb-16 rounded-2xl flex flex-col gap-6"
+            className="border-4 border-gray-500 w-6/12 px-12 py-12 rounded-2xl flex flex-col gap-6"
           >
             <label className="flex flex-col gap-2">
               <span className="text-lg">Email</span>
@@ -55,6 +55,21 @@ const ForgotPage = () => {
               <button className="col-start-3 px-12 py-3 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103">
                 Send Link
               </button>
+            </div>
+
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-lg text-gray-400">
+                Password gone bye-bye? 👋 Better not forget this time. 🔰
+              </p>
+              <p className="text-gray-300 text-xl">
+                Back to{" "}
+                <Link
+                  className="text-sky-500 lg:font-semibold underline underline-offset-3"
+                  to={`/login`}
+                >
+                  Login Page
+                </Link>
+              </p>
             </div>
           </form>
         </>
