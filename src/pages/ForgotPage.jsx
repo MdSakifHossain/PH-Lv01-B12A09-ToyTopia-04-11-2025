@@ -24,21 +24,21 @@ const ForgotPage = () => {
   };
 
   return (
-    <div className="flex-1 font-outfit flex flex-col items-center justify-center gap-12">
+    <div className="flex-1 font-outfit pb-8 pt-4 flex flex-col items-start lg:items-center justify-center gap-8 lg:gap-12">
       {!isSendClicked ? (
         <>
-          <h1 className="text-5xl font-bold border-b-4 border-violet-500 pb-2 px-4">
+          <h1 className="text-3xl lg:text-5xl font-bold border-b-4 border-violet-500 pb-2 lg:px-4 ms-2">
             Reset Password
           </h1>
           <form
             onSubmit={(e) => handleFormSubmit(e)}
-            className="border-4 border-gray-500 w-6/12 px-12 py-12 rounded-2xl flex flex-col gap-6"
+            className="border-4 border-gray-500 retro-shadow w-full lg:w-6/12 px-6 lg:px-9 py-6 lg:py-12 rounded-2xl flex flex-col gap-6 lg:gap-8"
           >
             <label className="flex flex-col gap-2">
               <span className="text-lg">Email</span>
               <input
                 className="
-                  retro-shadow px-6 py-4 w-full text-xl border-3 border-gray-500 transition-all duration-200
+                  retro-shadow px-6 py-4 w-full text-lg lg:text-xl border-3 border-gray-500 transition-all duration-200
                   active:scale-95 
                   focus-visible:outline-0"
                 placeholder="Your Email"
@@ -50,18 +50,18 @@ const ForgotPage = () => {
             </label>
 
             <div
-              className={`grid grid-cols-3 *:flex-1 *:rounded-lg *:select-none`}
+              className={`lg:grid lg:grid-cols-3 *:flex-1 *:rounded-lg *:select-none`}
             >
-              <button className="col-start-3 px-12 py-3 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103">
+              <button className="lg:col-start-3 py-3 text-base lg:text-lg border-3 border-gray-500 retro-shadow w-full font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103">
                 Send Link
               </button>
             </div>
 
-            <div className="flex flex-col items-center gap-4">
-              <p className="text-lg text-gray-400">
-                Password gone bye-bye? 👋 Better not forget this time. 🔰
+            <div className="flex flex-col items-center gap-2 lg:gap-0.5">
+              <p className="text-sm lg:text-base text-center text-gray-400">
+                Password gone bye-bye? 🤣
               </p>
-              <p className="text-gray-300 text-xl">
+              <p className="text-gray-300 text-base lg:text-lg font-medium">
                 Back to{" "}
                 <Link
                   className="text-sky-500 lg:font-semibold underline underline-offset-3"
@@ -74,9 +74,11 @@ const ForgotPage = () => {
           </form>
         </>
       ) : (
-        <p className="text-7xl flex flex-col items-center gap-4">
+        <p className="text-3xl lg:text-6xl text-center font-medium text-gray-200 flex flex-col items-center gap-2 lg:gap-4">
           Link has been Sent ✅{" "}
-          <span className="font-extrabold text-violet-500">&&</span>
+          <span className="font-extrabold text-violet-500 text-4xl lg:text-7xl">
+            &&
+          </span>
           Redirecting to the login page shortly 🔗
         </p>
       )}
