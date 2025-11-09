@@ -73,14 +73,22 @@ const LoginPage = () => {
             name="email"
           />
 
-          <input
-            className="w-full
-              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-              focus-visible:outline-0"
-            placeholder="Password"
-            type="password"
-            name="password"
-          />
+          <div className="w-full flex flex-col gap-2">
+            <input
+              className="w-full
+            retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
+            focus-visible:outline-0"
+              placeholder="Password"
+              type="password"
+              name="password"
+            />
+            <Link
+              to={`/fogot`}
+              className="ps-3 text-base underline underline-offset-2 hover:decoration-violet-500"
+            >
+              Forgot Password?
+            </Link>
+          </div>
 
           <input
             className="w-full sm:w-1/2 mx-auto sm:mx-0 sm:ms-auto px-10 py-2 md:py-3 border-3 border-gray-500 retro-shadow font-medium transition-all duration-150 ease-out active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
