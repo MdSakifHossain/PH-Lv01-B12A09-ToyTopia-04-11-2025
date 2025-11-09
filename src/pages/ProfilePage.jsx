@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
-import { LuSend } from "react-icons/lu";
+import { LuSend, LuCircleX } from "react-icons/lu";
 
 const ProfilePage = () => {
   const { user } = use(AuthContext);
@@ -63,7 +63,10 @@ const ProfilePage = () => {
           </section>
         </>
       ) : (
-        <form className="border-4 border-gray-500 w-6/12 px-12 py-12 pb-16 rounded-2xl flex flex-col gap-8">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="border-4 border-gray-500 w-6/12 px-12 py-12 pb-16 rounded-2xl flex flex-col gap-8"
+        >
           <label className="flex flex-col gap-2">
             <span className="text-lg">Name</span>
             <input
@@ -81,22 +84,40 @@ const ProfilePage = () => {
 
           <label className="flex flex-col gap-2">
             <span className="text-lg">Photo URL</span>
-            <input
+
+            <div
               className="
-            retro-shadow px-6 py-4 w-full text-xl border-3 border-gray-500 transition-all duration-200
-            active:scale-95 
-            focus-visible:outline-0"
-              placeholder="Your Email"
-              type="text"
-              name="name"
-              value={userPhotoURL}
-              onChange={(e) => setUserPhotoURL(e.target.value)}
-            />
+              retro-shadow w-full pe-4 text-xl border-3 border-gray-500
+              flex items-center justify-between gap-4
+              "
+            >
+              <input
+                //   className="
+                // retro-shadow px-6 py-4 w-full text-xl border-3 border-gray-500 transition-all duration-200
+                // active:scale-95
+                // focus-visible:outline-0"
+                className="flex-1 ps-4 py-4 focus-visible:outline-0"
+                placeholder="Your Email"
+                type="url"
+                name="name"
+                value={userPhotoURL}
+                onChange={(e) => setUserPhotoURL(e.target.value)}
+              />
+              <LuCircleX
+                onClick={() => setUserPhotoURL("")}
+                className={`size-8 transition-all duration-75 active:scale-75 
+                  ${!(userPhotoURL.length > 0) && "hidden"}
+                  `}
+              />
+            </div>
           </label>
 
-          <div className="*:flex-1 *:rounded-lg flex items-center gap-4">
+          <div className="*:flex-1 *:rounded-lg flex items-center gap-4 *:select-none">
             <button
-              onClick={() => setIsOpenUpdateForm(false)}
+              onClick={() => {
+                setIsOpenUpdateForm(false);
+                setUserPhotoURL(user.photoURL);
+              }}
               className="px-12 py-4 text-xl border-3 border-gray-500 retro-shadow w-full md:w-auto font-medium flex items-center justify-center gap-2 transition-all duration-150 ease-out hover:scale-103 active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
             >
               Cancel
