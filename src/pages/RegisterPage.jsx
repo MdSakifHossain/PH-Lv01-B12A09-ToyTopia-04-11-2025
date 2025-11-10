@@ -18,6 +18,10 @@ const RegisterPage = () => {
 
   useTitle("Register");
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const handleGoogleLogin = async () => {
     try {
       await signInWithGoogle();
@@ -67,7 +71,7 @@ const RegisterPage = () => {
               flex flex-col gap-3 items-start 
               caret-lime-400 
               "
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => handleFormSubmit(e)}
         >
           <label className="w-full flex flex-col gap-0.5">
             <span className="text-lg">Name</span>
