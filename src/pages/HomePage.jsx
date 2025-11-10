@@ -9,11 +9,14 @@ import GameCard from "../components/GameCard";
 import CategoryCard from "../components/CategoryCard";
 import CustomToast from "../components/CustomToast";
 import { shuffleArray } from "../utils";
+import { useTitle } from "../hooks/useTitle";
 
 const HomePage = () => {
   const { allGames, popularGames } = useLoaderData();
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useTitle();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

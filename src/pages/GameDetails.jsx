@@ -10,6 +10,7 @@ import { MdOutlineGamepad, MdOutlineCategory } from "react-icons/md";
 
 import ChillPill from "../components/ChillPill";
 import CustomToast from "../components/CustomToast";
+import { useTitle } from "../hooks/useTitle";
 
 const GameDetails = () => {
   const { gameData } = useLoaderData();
@@ -18,6 +19,8 @@ const GameDetails = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useTitle(gameData.title);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

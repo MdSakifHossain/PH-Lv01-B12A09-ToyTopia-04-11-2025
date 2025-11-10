@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { LuSend, LuCircleX, LuSettings } from "react-icons/lu";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { useTitle } from "../hooks/useTitle";
 
 const ProfilePage = () => {
   const { user } = use(AuthContext);
@@ -9,6 +10,8 @@ const ProfilePage = () => {
   const [username, setUsername] = useState(user.displayName);
   const [userPhotoURL, setUserPhotoURL] = useState(user.photoURL);
   const isMobile = useIsMobile();
+
+  useTitle("Profile");
 
   return (
     <div className="flex-1 pb-8 pt-4 font-outfit flex flex-col items-center justify-center gap-6 lg:gap-12">

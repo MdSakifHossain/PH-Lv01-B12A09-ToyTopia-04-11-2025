@@ -1,9 +1,12 @@
 import React from "react";
 import { Constants } from "../constants";
+import { useTitle } from "../hooks/useTitle";
 
 import CategoryCard from "../components/CategoryCard";
 
 const AllCategories = () => {
+  useTitle("Categories");
+
   return (
     <div className="flex-1 font-outfit pt-4 pb-8 flex flex-col items-start justify-start gap-16">
       <section className="w-full flex flex-col gap-8">

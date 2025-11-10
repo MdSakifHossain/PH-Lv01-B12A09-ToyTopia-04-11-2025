@@ -1,13 +1,16 @@
+import { useMemo, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { TbSearch } from "react-icons/tb";
 import { FaArrowLeft } from "react-icons/fa6";
 
 import GameCard from "../components/GameCard";
-import { useMemo, useState } from "react";
+import { useTitle } from "../hooks/useTitle";
 
 const SingleCategory = () => {
   const { games, category } = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
+
+  useTitle(category);
 
   const filteredArr = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();

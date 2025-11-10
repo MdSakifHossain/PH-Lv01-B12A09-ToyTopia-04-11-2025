@@ -3,10 +3,13 @@ import { toast } from "sonner";
 import CustomToast from "../components/CustomToast";
 import { FaCircleCheck } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router";
+import { useTitle } from "../hooks/useTitle";
 
 const ForgotPage = () => {
   const navigate = useNavigate();
   const [isSendClicked, setIsSendClicked] = useState(false);
+
+  useTitle("Forgot Password");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

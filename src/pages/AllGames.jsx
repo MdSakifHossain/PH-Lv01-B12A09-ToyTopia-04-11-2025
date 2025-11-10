@@ -3,10 +3,13 @@ import { useLoaderData } from "react-router";
 import { TbSearch } from "react-icons/tb";
 
 import GameCard from "../components/GameCard";
+import { useTitle } from "../hooks/useTitle";
 
 const AllGames = () => {
   const { popularGames } = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
+
+  useTitle("All Games");
 
   const filteredArr = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();

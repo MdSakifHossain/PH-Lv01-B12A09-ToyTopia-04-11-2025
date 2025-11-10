@@ -7,11 +7,14 @@ import { FaCircleCheck, FaGoogle } from "react-icons/fa6";
 import Divider from "./../components/Divider";
 import { toast } from "sonner";
 import CustomToast from "../components/CustomToast";
+import { useTitle } from "../hooks/useTitle";
 
 const LoginPage = () => {
   const { signInWithGoogle } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useTitle("Login");
 
   const handleGoogleLogin = async () => {
     try {

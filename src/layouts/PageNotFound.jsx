@@ -4,9 +4,11 @@ import { Link, useLocation } from "react-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import GhostCursor from "../components/GhostCursor";
+import { useTitle } from "../hooks/useTitle";
 
 const PageNotFound = () => {
   const location = useLocation();
+  useTitle("Page Not Found");
 
   return (
     <>

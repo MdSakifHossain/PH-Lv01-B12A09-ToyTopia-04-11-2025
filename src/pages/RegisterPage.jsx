@@ -7,11 +7,14 @@ import Divider from "./../components/Divider";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { toast } from "sonner";
 import CustomToast from "../components/CustomToast";
+import { useTitle } from "../hooks/useTitle";
 
 const RegisterPage = () => {
   const { signInWithGoogle } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useTitle("Register");
 
   const handleGoogleLogin = async () => {
     try {
