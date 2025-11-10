@@ -1,7 +1,8 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import { FaCircleCheck, FaGoogle } from "react-icons/fa6";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import Divider from "./../components/Divider";
 
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
@@ -13,6 +14,7 @@ const RegisterPage = () => {
   const { signInWithGoogle } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [showPass, setShowPass] = useState(false);
 
   useTitle("Register");
 
@@ -62,49 +64,74 @@ const RegisterPage = () => {
         <form
           className="w-full 
               text-lg sm:*:text-xl 
-              flex flex-col gap-5 items-start 
+              flex flex-col gap-3 items-start 
               caret-lime-400 
               "
           onSubmit={(e) => e.preventDefault()}
         >
-          <input
-            className="w-full
-              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-              focus-visible:outline-0"
-            placeholder="Name"
-            type="text"
-            name="name"
-          />
+          <label className="w-full flex flex-col gap-0.5">
+            <span className="text-lg">Name</span>
+            <input
+              className="w-full
+            retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
+            focus-visible:outline-0"
+              placeholder="Name"
+              type="text"
+              name="name"
+            />
+          </label>
+
+          <label className="w-full flex flex-col gap-0.5">
+            <span className="text-lg select-none">Profile URL</span>
+            <input
+              className="w-full
+            retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
+            focus-visible:outline-0"
+              placeholder="Profile URL"
+              type="url"
+              name="profile"
+            />
+          </label>
+
+          <label className="w-full flex flex-col gap-0.5">
+            <span className="text-lg select-none">Email</span>
+            <input
+              className="w-full
+            retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
+            focus-visible:outline-0"
+              placeholder="Email"
+              type="email"
+              name="email"
+            />
+          </label>
+
+          <label className="w-full flex flex-col gap-2">
+            <span className="text-lg select-none flex items-center gap-4">
+              Password
+              {showPass === false ? (
+                <LuEye
+                  onClick={() => setShowPass(true)}
+                  className={`size-6 my-auto text-gray-200`}
+                />
+              ) : (
+                <LuEyeOff
+                  onClick={() => setShowPass(false)}
+                  className={`size-6 my-auto text-gray-200`}
+                />
+              )}
+            </span>
+            <div className="retro-shadow w-full text-lg lg:text-xl border-3 border-gray-500 flex items-center">
+              <input
+                className="focus-visible:outline-0 px-6 py-4 w-full"
+                placeholder="Password"
+                type={showPass ? "text" : "password"}
+                name="password"
+              />
+            </div>
+          </label>
 
           <input
-            className="w-full
-              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-              focus-visible:outline-0"
-            placeholder="Profile URL"
-            type="url"
-            name="profile"
-          />
-
-          <input
-            className="w-full
-              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-              focus-visible:outline-0"
-            placeholder="Email"
-            type="email"
-            name="email"
-          />
-
-          <input
-            className="w-full
-              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-              focus-visible:outline-0"
-            placeholder="Password"
-            type="password"
-            name="password"
-          />
-
-          <input
-            className="w-full sm:w-1/2 mx-auto sm:mx-0 sm:ms-auto px-10 py-2 md:py-3 border-3 border-gray-500 retro-shadow font-medium transition-all duration-150 ease-out active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
+            className="w-full sm:w-1/2 mx-auto sm:mx-0 sm:ms-auto px-10 py-2 md:py-3 mt-2 border-3 border-gray-500 retro-shadow font-medium transition-all duration-150 ease-out active:scale-99 focus-visible:outline-0 focus-visible:scale-103"
             type="submit"
             value="Create"
           />
@@ -116,7 +143,7 @@ const RegisterPage = () => {
           h="h-0"
         />
 
-        <div className="w-full flex flex-col gap-8 items-center">
+        <section className="w-full flex flex-col gap-8 items-center">
           <button
             onClick={() => handleGoogleLogin()}
             className="w-full sm:w-10/12 text-lg lg:text-xl font-medium border-4 border-gray-500 retro-shadow px-10 py-4 flex items-center justify-center gap-4 transition-all duration-150 active:scale-95 focus-visible:outline-0 focus-visible:scale-103"
@@ -131,7 +158,7 @@ const RegisterPage = () => {
               Login
             </Link>
           </p>
-        </div>
+        </section>
       </section>
     </div>
   );
