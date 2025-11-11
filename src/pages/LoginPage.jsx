@@ -15,7 +15,6 @@ const LoginPage = () => {
   const location = useLocation();
 
   useTitle("Login");
-  console.log(`Login Page:\nLocation State: ${location.state}`);
 
   const handleGoogleLogin = async () => {
     try {

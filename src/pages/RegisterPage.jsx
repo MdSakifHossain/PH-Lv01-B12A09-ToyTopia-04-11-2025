@@ -9,12 +9,15 @@ import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { toast } from "sonner";
 import CustomToast from "../components/CustomToast";
 import { useTitle } from "../hooks/useTitle";
+import { getRandom } from "../utils";
+import { Constants } from "../constants/";
 
 const RegisterPage = () => {
   const { signInWithGoogle, createUser, updateUserProfile } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [showPass, setShowPass] = useState(false);
+  const { DEFAULT_AVATARS } = Constants;
 
   useTitle("Register");
 
@@ -68,11 +71,9 @@ const RegisterPage = () => {
       await createUser(email, password);
       await updateUserProfile({
         displayName: name,
-        photoURL: profileURL,
+        photoURL: profileURL || getRandom(DEFAULT_AVATARS).url,
       });
-
       navigate(location.state || "/");
-
       toast.custom(() => (
         <CustomToast>
           <FaCircleCheck className="text-xl lg:text-3xl text-gray-300" />

@@ -7,6 +7,7 @@ export const shuffleArray = (array) => {
   return array;
 };
 
+// code for detecting if the current device is a phone or not
 export const detectMobile = ({ maxWidth = 768 } = {}) => {
   const ua = navigator.userAgent || "";
   const uaMobile = /Android|iPhone|iPad|iPod/i.test(ua);
@@ -16,4 +17,10 @@ export const detectMobile = ({ maxWidth = 768 } = {}) => {
     window.matchMedia(`(max-width: ${maxWidth}px)`).matches;
 
   return uaMobile || isNarrow;
+};
+
+// some randomly random avatars url giver fucntion
+export const getRandom = (list) => {
+  const randomIndex = Math.floor(Math.random() * list.length);
+  return list[randomIndex];
 };
