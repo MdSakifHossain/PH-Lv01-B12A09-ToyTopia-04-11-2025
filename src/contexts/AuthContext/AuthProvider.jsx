@@ -52,14 +52,14 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      currentUser
-        ? console.log(
-            `Logged In - ${currentUser.providerData[0].providerId.replace(
-              ".com",
-              ""
-            )} 🐬`
-          )
-        : console.log("Logged Out 🕊️");
+      // currentUser
+      //   ? console.log(
+      //       `Logged In - ${currentUser.providerData[0].providerId.replace(
+      //         ".com",
+      //         ""
+      //       )} 🐬`
+      //     )
+      //   : console.log("Logged Out 🕊️");
       setUser(currentUser);
       setLoading(false);
     });

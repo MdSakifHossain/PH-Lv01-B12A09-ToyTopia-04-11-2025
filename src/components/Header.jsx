@@ -10,7 +10,7 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = async () => {
     try {
