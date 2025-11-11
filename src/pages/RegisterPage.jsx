@@ -82,8 +82,38 @@ const RegisterPage = () => {
           </p>
         </CustomToast>
       ));
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      // console.error(err);
+
+      let message = "";
+      if (err.code === "auth/email-already-in-use") {
+        message = "Email already in use.";
+      } else if (err.code === "auth/invalid-email") {
+        message = "Invalid email address.";
+      } else if (err.code === "auth/operation-not-allowed") {
+        message = "Account type not allowed.";
+      } else if (err.code === "auth/weak-password") {
+        message = "Weak password. Min 6 chars.";
+      } else if (err.code === "auth/missing-password") {
+        message = "Enter your password.";
+      } else if (err.code === "auth/missing-email") {
+        message = "Enter your email.";
+      } else if (err.code === "auth/internal-error") {
+        message = "Server error. Try again.";
+      } else if (err.code === "auth/network-request-failed") {
+        message = "Network error. Check connection.";
+      } else if (err.code === "auth/too-many-requests") {
+        message = "Too many tries. Wait a bit.";
+      } else {
+        message = "Something went wrong.";
+      }
+
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-3xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">{message}</p>
+        </CustomToast>
+      ));
     }
   };
 

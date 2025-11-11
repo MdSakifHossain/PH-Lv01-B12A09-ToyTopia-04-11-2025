@@ -4,11 +4,14 @@ import { LuSend, LuCircleX, LuSettings } from "react-icons/lu";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useTitle } from "../hooks/useTitle";
 
+// import { Constants } from "../constants/";
+
 const ProfilePage = () => {
   const { user } = use(AuthContext);
   const [isOpenUpdateForm, setIsOpenUpdateForm] = useState(false);
   const [username, setUsername] = useState(user.displayName || "");
   const [userPhotoURL, setUserPhotoURL] = useState(user.photoURL || "");
+  // const { DEFAULT_AVATARS } = Constants;
   const isMobile = useIsMobile();
 
   useTitle("Profile");
@@ -123,6 +126,33 @@ const ProfilePage = () => {
                 )}
               </div>
             </label>
+
+            {/* will work on this soon */}
+            {/* <label className="flex flex-col gap-2">
+              <div className="divider">OR</div>
+              <details className="dropdown dropdown-start select-none w-full">
+                /* the trigger *
+                <summary className="border-3 border-gray-500 retro-shadow font-medium px-4 lg:px-8 py-3.5 lg:py-4 flex items-center justify-between gap-2.5 lg:gap-4 transition-all duration-150 ease-out focus-visible:outline-0 focus-visible:scale-103">
+                  <p>Choose from here:</p>
+                  <img
+                    className="size-12 rounded-full"
+                    src={user.photoURL}
+                    alt={user.displayName}
+                  />
+                </summary>
+                /* the details container *
+                <div className="flex-1 grid grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-8 retro-shadow border-4 border-gray-500 px-4 lg:px-8 py-4 lg:py-8 pb-6 lg:pb-12">
+                  {DEFAULT_AVATARS.map((obj) => (
+                    <img
+                      onClick={() => setUserPhotoURL(obj.url)}
+                      className="w-full"
+                      key={obj.id}
+                      src={obj.url}
+                    />
+                  ))}
+                </div>
+              </details>
+            </label> */}
 
             <div className="*:flex-1 *:rounded-lg flex items-center gap-4 *:select-none">
               <button
