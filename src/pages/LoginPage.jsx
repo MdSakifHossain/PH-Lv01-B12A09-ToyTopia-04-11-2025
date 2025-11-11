@@ -49,7 +49,7 @@ const LoginPage = () => {
         </CustomToast>
       ));
     } catch (err) {
-      console.error(err);
+      // console.error(err);
 
       let message = "";
       if (err.code === "auth/user-disabled") {
