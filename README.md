@@ -1,30 +1,30 @@
-# ✨ Project README: Super Sleek & Emoji Power\! ✨
+# ✨ ToyTopia ✨
 
 ---
 
-## 🚀 Stack & Dependencies 🛠️
+## 🚀 Dependencies 🛠️
 
-| Dependency                | Purpose                        | Emojis |
-| :------------------------ | :----------------------------- | :----- |
-| **react** / **react-dom** | 💖 The UI Core\!               | ⚛️ 👑  |
-| **firebase**              | 🔐 Backend & Auth Power\!      | 🔥🔑   |
-| **axios**                 | 🌐 HTTP Requests Made Easy\!   | 📞💨   |
-| **react-router**          | 🗺️ Navigation & Routing Boss\! | 🧭➡️   |
-| **tailwindcss**           | 🎨 Utility-First Styling\!     | 💅🏼✨   |
-| **@tailwindcss/vite**     | ⚡ Vite + Tailwind Setup\!     | Vite   |
-| **react-icons**           | 🖼️ All The Cool Symbols\!      | 🌟🖋️   |
-| **sonner**                | 🔔 Clean Toast Notifications\! | 🍞🛎️   |
-| **swiper**                | 🎠 Modern Slider Component\!   | 🎞️🔄   |
+| Dependency                | Purpose                      | Symbol |
+| :------------------------ | :--------------------------- | :----- |
+| **react** / **react-dom** | 💖 The UI Core               | ⚛️ 👑  |
+| **firebase**              | 🔐 Backend & Auth Power      | 🔥🔑   |
+| **axios**                 | 🌐 HTTP Requests Made Easy   | 📞💨   |
+| **react-router**          | 🗺️ Navigation & Routing Boss | 🧭➡️   |
+| **tailwindcss**           | 🎨 Utility-First Styling     | 💅🏼✨   |
+| **@tailwindcss/vite**     | ⚡ Vite + Tailwind Setup     | Vite   |
+| **react-icons**           | 🖼️ All The Cool Symbols      | 🌟🖋️   |
+| **sonner**                | 🔔 Clean Toast Notifications | 🍞🛎️   |
+| **swiper**                | 🎠 Modern Slider Component   | 🎞️🔄   |
 
 ---
 
-### Installation 💻
+## Installation 💻🪄
 
-1. **Clone** the repo: `git clone [Your Repo URL]`
+1. **Clone** the repo: `git clone <This Repo Link>`
 
-2. **Install** packages: `npm install` 📦
+2. 📦 **Install** packages: `npm install`
 
-3. **Setup `.env`** file. Copy these variables into a file named `.env` in the root: ⚙️
+3. ⚙️ **Setup `.env`** file. Copy these variables into a file named `.env` in the root:
 
    ```
    VITE_x_rapidapi_key=
@@ -36,12 +36,10 @@
    VITE_appId=
    ```
 
-4. **Run** the app: `npm run dev` 🏃‍♂️💨
+4. 🏃‍♂️💨 **Run** the app: `npm run dev`
 
-### Live Link 🔗
+## Live Link 🔗👇
 
-Check out the live deployment here\! 👇
+🌍 [Click Here!](https://mdsakifhossain-a09-toytopia.netlify.app/)
 
-[Link to Live Site] (Replace with actual link\!) 🌍
-
-Enjoy the flow\! 🥳🎉
+Enjoy the flow! 🥳🎉
