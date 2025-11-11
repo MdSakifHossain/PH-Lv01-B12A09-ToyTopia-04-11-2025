@@ -41,8 +41,8 @@ li a.active {
 }
 
 ::selection {
-  background: rgb(133, 200, 62);
-  color: var(--color-black);
+  background: var(--color-rose-500);
+  color: var(--color-white);
 }
 
 /* Custom CSS for global scrollbar hiding */

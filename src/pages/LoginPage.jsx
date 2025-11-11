@@ -128,9 +128,7 @@ const LoginPage = () => {
           <div className="w-full flex flex-col gap-2">
             <label className="w-full flex flex-col gap-2">
               <span className="text-lg select-none flex items-center gap-4">
-                <span>
-                  Password <span className="text-red-600">*</span>
-                </span>
+                <span>Password</span>
                 {showPass === false ? (
                   <LuEye
                     onClick={() => setShowPass(true)}

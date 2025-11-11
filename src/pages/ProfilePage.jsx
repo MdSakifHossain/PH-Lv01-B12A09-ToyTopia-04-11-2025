@@ -24,6 +24,17 @@ const ProfilePage = () => {
     const name = e.target.name.value;
     const profileURL = e.target.profileURL.value;
 
+    if (name === user.displayName && profileURL === user.photoURL) {
+      return toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Nothing's changed! 🤷🎯
+          </p>
+        </CustomToast>
+      ));
+    }
+
     try {
       await updateUserProfile({
         displayName: name,
