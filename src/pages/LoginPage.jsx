@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 
@@ -8,11 +8,13 @@ import Divider from "./../components/Divider";
 import { toast } from "sonner";
 import CustomToast from "../components/CustomToast";
 import { useTitle } from "../hooks/useTitle";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const LoginPage = () => {
   const { signInWithGoogle, signInUser } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [showPass, setShowPass] = useState(false);
 
   useTitle("Login");
 
@@ -124,16 +126,32 @@ const LoginPage = () => {
           </label>
 
           <div className="w-full flex flex-col gap-2">
-            <label className="flex flex-col gap-2">
-              <span className="text-lg">Password</span>
-              <input
-                className="w-full
-                retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-                focus-visible:outline-0"
-                placeholder="Password"
-                type="password"
-                name="password"
-              />
+            <label className="w-full flex flex-col gap-2">
+              <span className="text-lg select-none flex items-center gap-4">
+                <span>
+                  Password <span className="text-red-600">*</span>
+                </span>
+                {showPass === false ? (
+                  <LuEye
+                    onClick={() => setShowPass(true)}
+                    className={`size-6 my-auto text-gray-200`}
+                  />
+                ) : (
+                  <LuEyeOff
+                    onClick={() => setShowPass(false)}
+                    className={`size-6 my-auto text-gray-200`}
+                  />
+                )}
+              </span>
+              <div className="retro-shadow w-full text-lg lg:text-xl border-3 border-gray-500 flex items-center">
+                <input
+                  className="focus-visible:outline-0 px-6 py-4 w-full"
+                  placeholder="Password"
+                  type={showPass ? "text" : "password"}
+                  name="password"
+                  required
+                />
+              </div>
             </label>
 
             <Link
