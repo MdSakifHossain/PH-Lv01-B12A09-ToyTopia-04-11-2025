@@ -3,16 +3,52 @@ import { AuthContext } from "../contexts/AuthContext/AuthContext";
 import { LuSend, LuCircleX, LuSettings } from "react-icons/lu";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useTitle } from "../hooks/useTitle";
+import { toast } from "sonner";
+import CustomToast from "../components/CustomToast";
+import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
+import { getRandom } from "../utils";
 
-// import { Constants } from "../constants/";
+import { Constants } from "../constants/";
 
 const ProfilePage = () => {
-  const { user } = use(AuthContext);
+  const { user, updateUserProfile } = use(AuthContext);
   const [isOpenUpdateForm, setIsOpenUpdateForm] = useState(false);
   const [username, setUsername] = useState(user.displayName || "");
   const [userPhotoURL, setUserPhotoURL] = useState(user.photoURL || "");
-  // const { DEFAULT_AVATARS } = Constants;
+  const { DEFAULT_AVATARS } = Constants;
   const isMobile = useIsMobile();
+
+  const handleProfileUpdateFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const profileURL = e.target.profileURL.value;
+
+    try {
+      await updateUserProfile({
+        displayName: name,
+        photoURL: profileURL || getRandom(DEFAULT_AVATARS).url,
+      });
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Updated Successfully 🥳✨
+          </p>
+        </CustomToast>
+      ));
+    } catch (err) {
+      console.error(err);
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            someting worng! Look in the console.
+          </p>
+        </CustomToast>
+      ));
+    }
+  };
 
   useTitle("Profile");
 
@@ -77,7 +113,7 @@ const ProfilePage = () => {
         <>
           <h1 className="text-4xl lg:text-5xl font-semibold">Update Info*</h1>
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => handleProfileUpdateFormSubmit(e)}
             className="border-4 border-gray-500 w-full lg:w-6/12 px-7 lg:px-12 py-8 lg:py-12 pb-16 rounded-2xl flex flex-col gap-7 lg:gap-8"
           >
             <label className="flex flex-col gap-2">
@@ -112,7 +148,7 @@ const ProfilePage = () => {
                   className="focus-visible:outline-0 px-6 py-4 w-full"
                   placeholder="Photo URL"
                   type="url"
-                  name="photo"
+                  name="profileURL"
                   value={userPhotoURL}
                   onChange={(e) => setUserPhotoURL(e.target.value)}
                 />
