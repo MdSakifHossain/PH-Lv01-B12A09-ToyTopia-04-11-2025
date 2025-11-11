@@ -1,7 +1,5 @@
 # ✨ ToyTopia ✨
 
----
-
 ## 🚀 Dependencies 🛠️
 
 | Dependency                | Purpose                      | Symbol |
@@ -15,8 +13,6 @@
 | **react-icons**           | 🖼️ All The Cool Symbols      | 🌟🖋️   |
 | **sonner**                | 🔔 Clean Toast Notifications | 🍞🛎️   |
 | **swiper**                | 🎠 Modern Slider Component   | 🎞️🔄   |
-
----
 
 ## Installation 💻🪄
 
