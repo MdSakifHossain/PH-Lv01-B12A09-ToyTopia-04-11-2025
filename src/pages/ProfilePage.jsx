@@ -7,8 +7,8 @@ import { useTitle } from "../hooks/useTitle";
 const ProfilePage = () => {
   const { user } = use(AuthContext);
   const [isOpenUpdateForm, setIsOpenUpdateForm] = useState(false);
-  const [username, setUsername] = useState(user.displayName);
-  const [userPhotoURL, setUserPhotoURL] = useState(user.photoURL);
+  const [username, setUsername] = useState(user.displayName || "");
+  const [userPhotoURL, setUserPhotoURL] = useState(user.photoURL || "");
   const isMobile = useIsMobile();
 
   useTitle("Profile");
