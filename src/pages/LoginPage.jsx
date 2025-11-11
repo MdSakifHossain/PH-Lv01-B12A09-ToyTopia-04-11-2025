@@ -15,6 +15,7 @@ const LoginPage = () => {
   const location = useLocation();
 
   useTitle("Login");
+  console.log(`Login Page:\nLocation State: ${location.state}`);
 
   const handleGoogleLogin = async () => {
     try {
@@ -23,9 +24,7 @@ const LoginPage = () => {
       toast.custom(() => (
         <CustomToast>
           <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
-          <p className="text-lg font-medium lg:text-xl">
-            Log in successful! ✨
-          </p>
+          <p className="text-lg font-medium lg:text-xl">Login successful! ✨</p>
         </CustomToast>
       ));
     } catch (error) {
@@ -117,7 +116,11 @@ const LoginPage = () => {
 
           <p className="text-base lg:text-lg text-gray-300">
             Don't have an account?{" "}
-            <Link className="text-sky-500 lg:font-semibold" to={`/register`}>
+            <Link
+              className="text-sky-500 lg:font-semibold"
+              to={`/register`}
+              state={location.state}
+            >
               Register
             </Link>
           </p>

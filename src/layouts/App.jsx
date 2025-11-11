@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <Toaster />
-      <GhostCursor />
+      {/* <GhostCursor /> */}
       <TopProgressBar />
       <div className="font-display-mono min-h-svh h-auto body text-gray-100 flex flex-col gap-4 lg:gap-12">
         <Header />

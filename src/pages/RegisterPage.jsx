@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
-import { FaCircleCheck, FaGoogle } from "react-icons/fa6";
+import { FaCircleCheck, FaCircleXmark, FaGoogle } from "react-icons/fa6";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import Divider from "./../components/Divider";
 
@@ -11,21 +11,79 @@ import CustomToast from "../components/CustomToast";
 import { useTitle } from "../hooks/useTitle";
 
 const RegisterPage = () => {
-  const { signInWithGoogle } = use(AuthContext);
+  const { signInWithGoogle, createUser, updateUserProfile } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [showPass, setShowPass] = useState(false);
 
   useTitle("Register");
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const profileURL = e.target.profile.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log("🐦", { name, profileURL, email, password });
+    const regexUpper = /^(?=.*[A-Z]).+$/;
+    const regexLower = /^(?=.*[a-z]).+$/;
+
+    if (password.length < 6) {
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-3xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Password must-be 6 character or longer
+          </p>
+        </CustomToast>
+      ));
+      return;
+    }
+
+    if (!regexLower.test(password)) {
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-3xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Use at least one lowerCase letter
+          </p>
+        </CustomToast>
+      ));
+      return;
+    }
+
+    if (!regexUpper.test(password)) {
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-3xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Use at least one upperCase letter
+          </p>
+        </CustomToast>
+      ));
+      return;
+    }
+
+    try {
+      await createUser(email, password);
+      await updateUserProfile({
+        displayName: name,
+        photoURL: profileURL,
+      });
+
+      navigate(location.state || "/");
+
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleCheck className="text-xl lg:text-3xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">
+            Account Created! 🎯⭐✨
+          </p>
+        </CustomToast>
+      ));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleGoogleLogin = async () => {
@@ -35,9 +93,7 @@ const RegisterPage = () => {
       toast.custom(() => (
         <CustomToast>
           <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
-          <p className="text-lg font-medium lg:text-xl">
-            Log in successful! ✨
-          </p>
+          <p className="text-lg font-medium lg:text-xl">Login successful! ✨</p>
         </CustomToast>
       ));
     } catch (error) {
