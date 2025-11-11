@@ -19,7 +19,9 @@ const AuthProvider = ({ children }) => {
 
   const createUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password).finally(() =>
+      setLoading(false)
+    );
   };
 
   const updateUserProfile = (userUpdatesInfo) => {
@@ -31,7 +33,9 @@ const AuthProvider = ({ children }) => {
 
   const signInUser = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password).finally(() =>
+      setLoading(false)
+    );
   };
 
   const signOutUser = () => {
@@ -41,7 +45,9 @@ const AuthProvider = ({ children }) => {
 
   const signInWithGoogle = () => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider).finally(() =>
+      setLoading(false)
+    );
   };
 
   useEffect(() => {

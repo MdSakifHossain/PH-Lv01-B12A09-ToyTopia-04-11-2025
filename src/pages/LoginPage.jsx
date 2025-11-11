@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../contexts/AuthContext/AuthContext";
 
-import { FaCircleCheck, FaGoogle } from "react-icons/fa6";
+import { FaCircleCheck, FaCircleXmark, FaGoogle } from "react-icons/fa6";
 
 import Divider from "./../components/Divider";
 import { toast } from "sonner";
@@ -10,7 +10,7 @@ import CustomToast from "../components/CustomToast";
 import { useTitle } from "../hooks/useTitle";
 
 const LoginPage = () => {
-  const { signInWithGoogle } = use(AuthContext);
+  const { signInWithGoogle, signInUser } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,6 +28,52 @@ const LoginPage = () => {
       ));
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    // console.log({ email, password });
+
+    try {
+      await signInUser(email, password);
+      navigate(location.state || "/");
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleCheck className="text-xl lg:text-2xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">Login successful! ✨</p>
+        </CustomToast>
+      ));
+    } catch (err) {
+      console.error(err);
+
+      let message = "";
+      if (err.code === "auth/user-disabled") {
+        message = "Account disabled.";
+      } else if (err.code === "auth/user-not-found") {
+        message = "No account found. Please register your account.";
+      } else if (err.code === "auth/wrong-password") {
+        message = "Incorrect password.";
+      } else if (err.code === "auth/invalid-credential") {
+        message = "No account found. Please register account.";
+      } else if (err.code === "auth/network-request-failed") {
+        message = "Network error. Check your internet connection.";
+      } else if (err.code === "auth/internal-error") {
+        message = "Server error. Please try again.";
+      } else {
+        message = "Something went wrong. Please try again.";
+      }
+
+      toast.custom(() => (
+        <CustomToast>
+          <FaCircleXmark className="text-xl lg:text-3xl text-gray-300" />
+          <p className="text-lg font-medium lg:text-xl">{message}</p>
+        </CustomToast>
+      ));
     }
   };
 
@@ -63,29 +109,36 @@ const LoginPage = () => {
               flex flex-col gap-5 items-start 
               caret-lime-400 
               "
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => handleFormSubmit(e)}
         >
-          <input
-            className="w-full
-              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-              focus-visible:outline-0"
-            placeholder="Email"
-            type="email"
-            name="email"
-          />
-
-          <div className="w-full flex flex-col gap-2">
+          <label className="w-full flex flex-col gap-2">
+            <span className="text-lg">Email</span>
             <input
               className="w-full
-            retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
-            focus-visible:outline-0"
-              placeholder="Password"
-              type="password"
-              name="password"
+              retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
+              focus-visible:outline-0"
+              placeholder="Email"
+              type="email"
+              name="email"
             />
+          </label>
+
+          <div className="w-full flex flex-col gap-2">
+            <label className="flex flex-col gap-2">
+              <span className="text-lg">Password</span>
+              <input
+                className="w-full
+                retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
+                focus-visible:outline-0"
+                placeholder="Password"
+                type="password"
+                name="password"
+              />
+            </label>
+
             <Link
               to={`/forgot`}
-              className="ps-3 text-base underline underline-offset-2 hover:decoration-violet-500"
+              className="lg:ps-3 text-base underline underline-offset-2 hover:decoration-violet-500"
             >
               Forgot Password?
             </Link>
