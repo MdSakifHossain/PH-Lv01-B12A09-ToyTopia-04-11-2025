@@ -20,6 +20,12 @@ const RegisterPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
+    const profileURL = e.target.profile.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log("🐦", { name, profileURL, email, password });
   };
 
   const handleGoogleLogin = async () => {
@@ -74,7 +80,9 @@ const RegisterPage = () => {
           onSubmit={(e) => handleFormSubmit(e)}
         >
           <label className="w-full flex flex-col gap-0.5">
-            <span className="text-lg">Name</span>
+            <span className="text-lg">
+              Name <span className="text-red-600">*</span>
+            </span>
             <input
               className="w-full
             retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
@@ -82,6 +90,7 @@ const RegisterPage = () => {
               placeholder="Name"
               type="text"
               name="name"
+              required
             />
           </label>
 
@@ -98,7 +107,9 @@ const RegisterPage = () => {
           </label>
 
           <label className="w-full flex flex-col gap-0.5">
-            <span className="text-lg select-none">Email</span>
+            <span className="text-lg select-none">
+              Email <span className="text-red-600">*</span>
+            </span>
             <input
               className="w-full
             retro-shadow px-5 py-3.5 md:py-4 border-3 border-gray-500 transition-all duration-200
@@ -106,12 +117,15 @@ const RegisterPage = () => {
               placeholder="Email"
               type="email"
               name="email"
+              required
             />
           </label>
 
           <label className="w-full flex flex-col gap-2">
             <span className="text-lg select-none flex items-center gap-4">
-              Password
+              <span>
+                Password <span className="text-red-600">*</span>
+              </span>
               {showPass === false ? (
                 <LuEye
                   onClick={() => setShowPass(true)}
@@ -130,6 +144,7 @@ const RegisterPage = () => {
                 placeholder="Password"
                 type={showPass ? "text" : "password"}
                 name="password"
+                required
               />
             </div>
           </label>
